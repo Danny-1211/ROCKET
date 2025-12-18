@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "./common/_color.css";
+@import "./common/_font.css";
+@import "./common/_radius.css";
+body {
+    font-family: var(--font-zh);
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
