@@ -1,4 +1,4 @@
-import { Rocket } from './Rocket';
+import Rocket  from "./Rocket.jsx";
 function Home() {   
     return(
         <>
