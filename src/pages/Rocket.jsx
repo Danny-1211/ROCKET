@@ -1,11 +1,11 @@
-import {about} from '../components/rocket/AboutRocket';
-function Rocket() { 
-    return(
+import AboutRocket  from "../components/rocket/AboutRocket.jsx";
+function Rocket() {
+    return (
         <>
             <h1>Rocket Page</h1>
-            <about />
+            <AboutRocket />
         </>
-    )   
+    );
 }
 
 export default Rocket;
