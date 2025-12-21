@@ -4,7 +4,18 @@ import disscusSm from "../../assets/imgs/intro/intro-discuss-sm-3x.png";
 import disscusLg from "../../assets/imgs/intro/intro-discuss-lg-3x.png";
 import resiSm from "../../assets/imgs/intro/intro-worksapce-sm-3x.png";
 import resiLg from "../../assets/imgs/intro/intro-workspace-lg-3x.png";
-
+import serviceCoffeeSm from "../../assets/imgs/icon/ic-coffee-sm.svg";
+import serviceCoffeeLg from "../../assets/imgs/icon/ic-coffee-lg.svg";
+import serviceWifiSm from "../../assets/imgs/icon/ic-wifi-sm.svg";
+import serviceWifiLg from "../../assets/imgs/icon/ic-wifi-lg.svg";
+import serviceChairSm from "../../assets/imgs/icon/ic-chair-sm.svg";
+import serviceChairLg from "../../assets/imgs/icon/ic-chair-lg.svg";
+import serviceChatSm from "../../assets/imgs/icon/ic-chat-sm.svg";
+import serviceChatLg from "../../assets/imgs/icon/ic-chat-lg.svg";
+import serviceTrafficSm from "../../assets/imgs/icon/ic-traffic-sm.svg";
+import serviceTrafficLg from "../../assets/imgs/icon/ic-traffic-lg.svg";
+import serviceFoodSm from "../../assets/imgs/icon/ic-food-sm.svg";
+import serviceFoodLg from "../../assets/imgs/icon/ic-food-lg.svg";
 
 const areas = [
   {
@@ -39,6 +50,52 @@ const areas = [
   tag: "#硬體",
   },
 ];
+
+const services = [
+  {
+    id: "coffee",
+    iconSm: serviceCoffeeSm,
+    iconLg: serviceCoffeeLg,
+    title: "咖啡、茶水",
+    desc: "飲水機、冰箱、微波爐、果汁機、膠囊咖啡機及不定時茶包及小餅乾零食",
+  },
+  {
+    id: "wifi",
+    iconSm: serviceWifiSm,
+    iconLg: serviceWifiLg,
+    title: "超快速網路",
+    desc: "使用 Wifi Mesh，讓你在場域中都有順暢的網路",
+  },
+  {
+    id: "chair",
+    iconSm: serviceChairSm,
+    iconLg: serviceChairLg,
+    title: "舒服的桌椅",
+    desc: "白色辦公桌設計簡潔大方，搭配上人體工學椅，讓您的身體在長時間辦公後仍能保持舒適",
+  },
+  {
+    id: "community",
+    iconSm: serviceChatSm,
+    iconLg: serviceChatLg,
+    title: "與火箭隊培訓營交流",
+    desc: "進駐者能夠與開發團隊暢通無阻地交流，共同分享各自的專業知識和經驗。",
+  },
+  {
+    id: "traffic",
+    iconSm: serviceTrafficSm,
+    iconLg: serviceTrafficLg,
+    title: "便捷的交通",
+    desc: "共享空間位於捷運信義國小站附近，為您提供極佳的交通便利性。",
+  },
+  {
+    id: "food",
+    iconSm: serviceFoodSm,
+    iconLg: serviceFoodLg,
+    title: "超多美食在附近",
+    desc: "無論你要日式、西式、台式，各種美食應有盡有",
+  },
+];
+
 function ImageBlock({ title, imgSm, imgLg }) {
   return (
     <div className=" overflow-hidden">
@@ -59,7 +116,7 @@ function TextBlock({ subtitle, desc}) {
     <div className="max-w-123.5">
 
 
-      <h3 className="body-1 text-Neutral-700eutral-700 font-bold mb-2 md:mb-5">
+      <h3 className="body-1 text-Neutral-700 font-bold mb-2 md:mb-5">
         {subtitle}
       </h3>
 
