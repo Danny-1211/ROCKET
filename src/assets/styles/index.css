@@ -3,6 +3,7 @@
 @import "./common/_font.css";
 @import "./common/_radius.css";
 @import "./common/_globals.css";
+@import "./common/_animate.css";
 body {
     font-family: var(--font-zh);
     font-size: 16px;
