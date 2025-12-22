@@ -1,3 +1,11 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import { Autoplay, Mousewheel } from "swiper/modules";
+import "swiper/css";
+
+
+
 import restSm from "../../assets/imgs/intro/intro-rest-sm-3x.png";
 import restLg from "../../assets/imgs/intro/intro-rest-lg-3x.png";
 import disscusSm from "../../assets/imgs/intro/intro-discuss-sm-3x.png";
@@ -16,6 +24,23 @@ import serviceTrafficSm from "../../assets/imgs/icon/ic-traffic-sm.svg";
 import serviceTrafficLg from "../../assets/imgs/icon/ic-traffic-lg.svg";
 import serviceFoodSm from "../../assets/imgs/icon/ic-food-sm.svg";
 import serviceFoodLg from "../../assets/imgs/icon/ic-food-lg.svg";
+import carousel1Sm from "../../assets/imgs/carousel/carousel1-sm.png"
+import carousel1Lg from "../../assets/imgs/carousel/carousel1-lg.png"
+import carousel2Sm from "../../assets/imgs/carousel/carousel2-sm.png"
+import carousel2Lg from "../../assets/imgs/carousel/carousel2-lg.png"
+import carousel3Sm from "../../assets/imgs/carousel/carousel3-sm.png"
+import carousel3Lg from "../../assets/imgs/carousel/carousel3-lg.png"
+import carousel4Sm from "../../assets/imgs/carousel/carousel4-sm.png"
+import carousel4Lg from "../../assets/imgs/carousel/carousel4-lg.png"
+import carousel5Sm from "../../assets/imgs/carousel/carousel5-sm.png"
+import carousel5Lg from "../../assets/imgs/carousel/carousel5-lg.png"
+import carousel6Sm from "../../assets/imgs/carousel/carousel6-sm.png"
+import carousel6Lg from "../../assets/imgs/carousel/carousel6-lg.png"
+import carousel7Sm from "../../assets/imgs/carousel/carousel7-sm.png"
+import carousel7Lg from "../../assets/imgs/carousel/carousel7-lg.png"
+import carousel8Sm from "../../assets/imgs/carousel/carousel8-sm.png"
+import carousel8Lg from "../../assets/imgs/carousel/carousel8-lg.png"
+
 
 const areas = [
   {
@@ -96,6 +121,17 @@ const services = [
   },
 ];
 
+const slides = [
+  { id: 1, sm: carousel1Sm, lg: carousel1Lg, alt: "carousel 1" },
+  { id: 2, sm: carousel2Sm, lg: carousel2Lg, alt: "carousel 2" },
+  { id: 3, sm: carousel3Sm, lg: carousel3Lg, alt: "carousel 3" },
+  { id: 4, sm: carousel4Sm, lg: carousel4Lg, alt: "carousel 4" },
+  { id: 5, sm: carousel5Sm, lg: carousel5Lg, alt: "carousel 5" },
+  { id: 6, sm: carousel6Sm, lg: carousel6Lg, alt: "carousel 6" },
+  { id: 7, sm: carousel7Sm, lg: carousel7Lg, alt: "carousel 7" },
+  { id: 8, sm: carousel8Sm, lg: carousel8Lg, alt: "carousel 8" },
+];
+
 function ImageBlock({ title, imgSm, imgLg }) {
   return (
     <div className=" overflow-hidden">
@@ -161,9 +197,54 @@ function ServiceCard({ iconSm, iconLg, title, desc }) {
   );
 }
 
+function WorkspaceCarousel() {
+  return (
+    <div className="w-full overflow-hidden ">
+      <Swiper
+        modules={[Mousewheel, Autoplay]}
+        autoplay={{ delay: 2000, disableOnInteraction: false }} //換張秒數控制
+        loop
+
+        speed={600}
+        spaceBetween={16}
+        slidesPerView={1.3}
+        mousewheel={{
+        forceToAxis: true,      
+        sensitivity: 1,
+        releaseOnEdges: true,    
+         }}
+
+        centeredSlides
+        breakpoints={{
+          768: { slidesPerView: 2.24, spaceBetween: 24 },
+          1024: { slidesPerView: 2.24, spaceBetween: 24 },
+          1440: { slidesPerView: 2.5, spaceBetween: 24 },
+        }}
+      >
+        {slides.map((s) => (
+          <SwiperSlide key={s.id}>
+            <div className="r-sm overflow-hidden">
+              <picture>
+                <source media="(min-width: 768px)" srcSet={s.lg} />
+                <img
+                  src={s.sm}
+                  alt={s.alt}
+                  className="block w-full aspect-[332/240] md:aspect-[636/424] object-center"
+                  loading="lazy"
+                />
+              </picture>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}
+
+
 function AreaContent() {
   return (
-    
+    <>
     <section className="max-w-274 mx-auto px-12 ">
         <h2 className="text-center h2 py-4 md:py-15">場域說明</h2>
         <span className="relative inline-block mb-4">
@@ -195,7 +276,7 @@ function AreaContent() {
 
 
         {/* ** */}
-         <div className="mt-12 md:mt-19">
+        <div className="mt-12 md:mt-19">
             <span className="relative inline-block mb-6 md:mb-7">
             <span className="relative z-10 font-bold text-xl md:text-[28px]">#服務</span>
             <span className="absolute inset-x-0 -inset-y-0.2 bottom-0 h-1/2 bg-accent-orange z-0"></span>
@@ -205,9 +286,15 @@ function AreaContent() {
             {services.map((service) => (
                 <ServiceCard key={service.id} {...service} />
             ))}
+            </div>
         </div>
-      </div>
+      
+
     </section>
+    <div className="mt-10 mb-12 md:mt-20 md:mb-20">
+        <WorkspaceCarousel/>
+    </div>
+    </>
   );
 }
 	export default AreaContent;
