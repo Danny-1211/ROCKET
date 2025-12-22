@@ -2,6 +2,7 @@
 @import "./common/_color.css";
 @import "./common/_font.css";
 @import "./common/_radius.css";
+@import "./common/_globals.css";
 @import "./common/_animate.css";
 body {
     font-family: var(--font-zh);
