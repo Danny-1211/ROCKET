@@ -57,42 +57,42 @@ const services = [
     iconSm: serviceCoffeeSm,
     iconLg: serviceCoffeeLg,
     title: "咖啡、茶水",
-    desc: "飲水機、冰箱、微波爐、果汁機、膠囊咖啡機及不定時茶包及小餅乾零食",
+    desc: "飲水機、冰箱、微波爐、果汁機、\n膠囊咖啡機及不定時茶包及小餅乾零食",
   },
   {
     id: "wifi",
     iconSm: serviceWifiSm,
     iconLg: serviceWifiLg,
     title: "超快速網路",
-    desc: "使用 Wifi Mesh，讓你在場域中都有順暢的網路",
+    desc: "使用 Wifi Mesh，\n讓你在場域中都有順暢的網路",
   },
   {
     id: "chair",
     iconSm: serviceChairSm,
     iconLg: serviceChairLg,
     title: "舒服的桌椅",
-    desc: "白色辦公桌設計簡潔大方，搭配上人體工學椅，讓您的身體在長時間辦公後仍能保持舒適",
+    desc: "白色辦公桌設計簡潔大方，搭配上人體工學椅，\n讓您的身體在長時間辦公後仍能保持舒適",
   },
   {
     id: "community",
     iconSm: serviceChatSm,
     iconLg: serviceChatLg,
     title: "與火箭隊培訓營交流",
-    desc: "進駐者能夠與開發團隊暢通無阻地交流，共同分享各自的專業知識和經驗。",
+    desc: "進駐者能夠與開發團隊暢通無阻地交流，\n共同分享各自的專業知識和經驗。",
   },
   {
     id: "traffic",
     iconSm: serviceTrafficSm,
     iconLg: serviceTrafficLg,
     title: "便捷的交通",
-    desc: "共享空間位於捷運信義國小站附近，為您提供極佳的交通便利性。",
+    desc: "共享空間位於捷運信義國小站附近，\n為您提供極佳的交通便利性。",
   },
   {
     id: "food",
     iconSm: serviceFoodSm,
     iconLg: serviceFoodLg,
     title: "超多美食在附近",
-    desc: "無論你要日式、西式、台式，各種美食應有盡有",
+    desc: "無論你要日式、西式、台式，\n各種美食應有盡有",
   },
 ];
 
@@ -105,12 +105,12 @@ function ImageBlock({ title, imgSm, imgLg }) {
         <img
           src={imgSm}
           alt={title}
-          className="w-full aspect-332/222 "
+          className="w-full aspect-[332/222]"
         />
       </picture>
     </div>
   );
-}
+};
 function TextBlock({ subtitle, desc}) {
   return (
     <div className="max-w-123.5">
@@ -120,7 +120,7 @@ function TextBlock({ subtitle, desc}) {
         {subtitle}
       </h3>
 
-      <p className="text-Neutral-600  text-sm md:text-base leading-relaxed">
+      <p className="text-Neutral-600  text-sm md:text-base ">
          {Array.isArray(desc)
             ? desc.map((seg, idx) => (
                 <span key={idx} className={seg.bold ? "font-bold" : ""}>
@@ -131,8 +131,35 @@ function TextBlock({ subtitle, desc}) {
       </p>
     </div>
   );
+};
+// **
+function ServiceIcon({ title, iconSm, iconLg, className = "" }) {
+  return (
+    <picture className={`block ${className}`.trim()}>
+      <source media="(min-width: 768px)" srcSet={iconLg} />
+      <img src={iconSm} alt={title} className="block w-full h-full" />
+    </picture>
+  );
 }
-
+//
+function ServiceCard({ iconSm, iconLg, title, desc }) {
+  return (
+    <div className="flex gap-4 md:flex-col md:items-center md:gap-6 md:text-center">
+      <div className="shrink-0 w-12 h-12 md:w-30 md:h-30">
+        <ServiceIcon
+          title={title}
+          iconSm={iconSm}
+          iconLg={iconLg}
+          className="w-full h-full"
+        />
+      </div>
+      <div className="space-y-1 md:space-y-2">
+        <p className="body-3 font-bold text-Neutral-700 md:body-2">{title}</p>
+        <p className="text-sm  text-Neutral-600  whitespace-normal lg:whitespace-pre-line ">{desc}</p>
+      </div>
+    </div>
+  );
+}
 
 function AreaContent() {
   return (
@@ -166,6 +193,20 @@ function AreaContent() {
             })}
         </div> 
 
+
+        {/* ** */}
+         <div className="mt-12 md:mt-19">
+            <span className="relative inline-block mb-6 md:mb-7">
+            <span className="relative z-10 font-bold text-xl md:text-[28px]">#服務</span>
+            <span className="absolute inset-x-0 -inset-y-0.2 bottom-0 h-1/2 bg-accent-orange z-0"></span>
+            </span>
+
+            <div className="space-y-7 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-7 md:gap-y-12">
+            {services.map((service) => (
+                <ServiceCard key={service.id} {...service} />
+            ))}
+        </div>
+      </div>
     </section>
   );
 }
