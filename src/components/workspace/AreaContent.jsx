@@ -70,8 +70,8 @@ const areas = [
         id: "resident",
         title: "Resident",
         subtitle: "\\ 進駐者區域 / ",
-        desc:[{text:"我們的目標是凝聚更多開發者，為他們提供一個充滿活力的交流空間。在這裡，開發者可以互相學習、分享，透過交流讓自己的技能和視野得到更快速的成長。我們相信，一個好的環境能夠激發創意，促進專業能力的提升。"},
-            {text:"我們希望將這樣的場域擴展至高雄，誠摯地邀請您加入我們，一起為開發者打造一個交流與學習的樂園，讓大家在這裡彼此成長，共同推動科技產業的進步。"},
+        desc: [{ text: "我們的目標是凝聚更多開發者，為他們提供一個充滿活力的交流空間。在這裡，開發者可以互相學習、分享，透過交流讓自己的技能和視野得到更快速的成長。我們相信，一個好的環境能夠激發創意，促進專業能力的提升。" },
+        { text: "我們希望將這樣的場域擴展至高雄，誠摯地邀請您加入我們，一起為開發者打造一個交流與學習的樂園，讓大家在這裡彼此成長，共同推動科技產業的進步。" },
         ],
         imgSm: resiSm,
         imgLg: resiLg,
@@ -151,41 +151,41 @@ function ImageBlock({ title, imgSm, imgLg }) {
     );
 };
 function TextBlock({ subtitle, desc }) {
-  const isInline = Array.isArray(desc) && desc.some(seg => seg.bold);
+    const isInline = Array.isArray(desc) && desc.some(seg => seg.bold);
 
-  return (
-    <div className="max-w-123.5">
-      <h3 className="body-1 text-Neutral-700 font-bold mb-2 md:mb-5">
-        {subtitle}
-      </h3>
-      {isInline && (
-        <p className="text-Neutral-600 text-sm md:text-base">
-          {desc.map((seg, idx) => (
-            <span
-              key={idx}
-              className={seg.bold ? "font-bold" : ""}
-            >
-              {seg.text}
-            </span>
-          ))}
-        </p>
-      )}
+    return (
+        <div className="max-w-123.5">
+            <h3 className="body-1 text-Neutral-700 font-bold mb-2 md:mb-5">
+                {subtitle}
+            </h3>
+            {isInline && (
+                <p className="text-Neutral-600 text-sm md:text-base">
+                    {desc.map((seg, idx) => (
+                        <span
+                            key={idx}
+                            className={seg.bold ? "font-bold" : ""}
+                        >
+                            {seg.text}
+                        </span>
+                    ))}
+                </p>
+            )}
 
-      {!isInline && Array.isArray(desc) && (
-        <div className="space-y-4 text-Neutral-600 text-sm md:text-base">
-          {desc.map((seg, idx) => (
-            <p key={idx}>{seg.text}</p>
-          ))}
+            {!isInline && Array.isArray(desc) && (
+                <div className="space-y-4 text-Neutral-600 text-sm md:text-base">
+                    {desc.map((seg, idx) => (
+                        <p key={idx}>{seg.text}</p>
+                    ))}
+                </div>
+            )}
+
+            {!Array.isArray(desc) && (
+                <p className="text-Neutral-600 text-sm md:text-base">
+                    {desc}
+                </p>
+            )}
         </div>
-      )}
-
-      {!Array.isArray(desc) && (
-        <p className="text-Neutral-600 text-sm md:text-base">
-          {desc}
-        </p>
-      )}
-    </div>
-  );
+    );
 }
 
 function ServiceIcon({ title, iconSm, iconLg, className = "" }) {
@@ -351,162 +351,162 @@ function AreaContent() {
                         單日暫不開放。
                     </p>
 
-                    <div  className="-mr-12 xl:mr-0">    
-                    <Swiper
-                        modules={[Mousewheel]}
-                        slidesPerView={1.1}
-                        spaceBetween={20}
-                        centeredSlides={false}
-                        mousewheel={{ forceToAxis: true, sensitivity: 1, releaseOnEdges: true }}
-                        className="w-full  pr-12 md:pr-0"
-                        breakpoints={{
-                            600: { slidesPerView: 1.4, spaceBetween: 24 },
-                            768: { slidesPerView: 1.5, spaceBetween: 24 },
-                            1024: { slidesPerView: 2, spaceBetween: 24 },
-                        }}
-                    >
-                        <SwiperSlide className="h-auto -mr-12">
-                            <div className="mb-8 xl:mb-10">
-                                <div
-                                    onClick={() => setActiveIdx(0)}
-                                    className={[
-                                        "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 lg:pb-12",
-                                        activeIdx === 0 ? "border-Neutral-700" : "border-transparent",
-                                        "hover:border-Neutral-700",
-                                    ].join(" ")}
-                                >
-                                    <h3 className="text-Neutral-700 h3 text-center  mb-4">進駐者</h3>
-                                    <p className="font-en bg-Neutral-200 text-center text-Neutral-700 text-2xl font-bold px-5 py-5  md:px-10 md:py-10 md:text-4xl ">$ 3,200 / Month</p>
+                    <div className="-mr-12 xl:mr-0">
+                        <Swiper
+                            modules={[Mousewheel]}
+                            slidesPerView={1.1}
+                            spaceBetween={20}
+                            centeredSlides={false}
+                            mousewheel={{ forceToAxis: true, sensitivity: 1, releaseOnEdges: true }}
+                            className="w-full  pr-12 md:pr-0"
+                            breakpoints={{
+                                600: { slidesPerView: 1.4, spaceBetween: 24 },
+                                768: { slidesPerView: 1.5, spaceBetween: 24 },
+                                1024: { slidesPerView: 2, spaceBetween: 24 },
+                            }}
+                        >
+                            <SwiperSlide className="h-auto -mr-12">
+                                <div className="mb-8 xl:mb-10">
+                                    <div
+                                        onClick={() => setActiveIdx(0)}
+                                        className={[
+                                            "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 lg:pb-12",
+                                            activeIdx === 0 ? "border-Neutral-700" : "border-transparent",
+                                            "hover:border-Neutral-700",
+                                        ].join(" ")}
+                                    >
+                                        <h3 className="text-Neutral-700 h3 text-center  mb-4">進駐者</h3>
+                                        <p className="font-en bg-Neutral-200 text-center text-Neutral-700 text-2xl font-bold px-5 py-5  md:px-10 md:py-10 md:text-4xl ">$ 3,200 / Month</p>
 
-                                    <div className="flex flex-col gap-3 mt-4 md:mt-7 md:gap-4 ">
-                                        <p className="flex items-center gap-3">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            <span className="relative inline-block ">
-                                                <span className="relative z-10 text-base text-Neutral-700">進駐區域</span>
-                                                <span className="absolute -inset-y-0.1  inset-x-0 bottom-0.5 h-2/5 bg-accent-orange z-0" />
-                                            </span>
-                                        </p>
+                                        <div className="flex flex-col gap-3 mt-4 md:mt-7 md:gap-4 ">
+                                            <p className="flex items-center gap-3">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                <span className="relative inline-block ">
+                                                    <span className="relative z-10 text-base text-Neutral-700">進駐區域</span>
+                                                    <span className="absolute -inset-y-0.1  inset-x-0 bottom-0.5 h-2/5 bg-accent-orange z-0" />
+                                                </span>
+                                            </p>
 
-                                        <p className="flex items-center gap-3 text-base text-Neutral-700">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            <span className="font-en translate-y-0.5 text-base  text-Neutral-700">9:00-18:00</span>
-                                            可使用
-                                        </p>
+                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                <span className="font-en translate-y-0.5 text-base  text-Neutral-700">9:00-18:00</span>
+                                                可使用
+                                            </p>
 
-                                        <p className="flex items-center gap-3">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            <span className="relative inline-block ">
-                                                <span className="relative z-10 text-base text-Neutral-700">固定座位</span>
-                                                <span className="absolute -inset-y-0.1  inset-x-0 bottom-0.5 h-2/5 bg-accent-orange z-0" />
-                                            </span>
-                                        </p>
+                                            <p className="flex items-center gap-3">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                <span className="relative inline-block ">
+                                                    <span className="relative z-10 text-base text-Neutral-700">固定座位</span>
+                                                    <span className="absolute -inset-y-0.1  inset-x-0 bottom-0.5 h-2/5 bg-accent-orange z-0" />
+                                                </span>
+                                            </p>
 
-                                        <p className="flex items-center gap-3">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            <span className="relative inline-block ">
-                                                <span className="relative z-10 text-base text-Neutral-700">專屬置物櫃</span>
-                                                <span className="absolute -inset-y-0.1  inset-x-0 bottom-0.5 h-2/5 bg-accent-orange z-0" />
-                                            </span>
-                                        </p>
+                                            <p className="flex items-center gap-3">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                <span className="relative inline-block ">
+                                                    <span className="relative z-10 text-base text-Neutral-700">專屬置物櫃</span>
+                                                    <span className="absolute -inset-y-0.1  inset-x-0 bottom-0.5 h-2/5 bg-accent-orange z-0" />
+                                                </span>
+                                            </p>
 
-                                        <p className="flex items-center gap-3 text-base text-Neutral-700">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            免費無線網路
-                                        </p>
+                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                免費無線網路
+                                            </p>
 
-                                        <p className="flex items-center gap-3 text-base text-Neutral-700">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            免費咖啡茶水
-                                        </p>
+                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                免費咖啡茶水
+                                            </p>
 
-                                        <p className="flex items-center gap-3 text-base text-Neutral-700">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            原價
-                                            <span className="font-en translate-y-0.5 text-base  text-Neutral-700">｜3,500 / Month</span>
-                                        </p>
+                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                原價
+                                                <span className="font-en translate-y-0.5 text-base  text-Neutral-700">｜3,500 / Month</span>
+                                            </p>
+                                        </div>
+
                                     </div>
-
                                 </div>
-                            </div>
-                        </SwiperSlide>
+                            </SwiperSlide>
 
-                        <SwiperSlide className="h-auto group">
-                            <div className="mb-8 xl:mb-10">
-                                <div
-                                    onClick={() => setActiveIdx(1)}
-                                    className={[
-                                        "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 xl:pb-12",
-                                        activeIdx === 1 ? "border-Neutral-700" : "border-transparent",
-                                        "hover:border-Neutral-700",
-                                    ].join(" ")}
-                                >
-                                    <h3 className="text-Neutral-700 h3 text-center tracking-tight md:tracking-[0.02] mb-4">單日使用（暫不提供）</h3>
-                                    <p className="font-en bg-Neutral-200 text-center text-Neutral-700 text-2xl font-bold px-10 py-5 md:px-10 md:py-10 md:text-4xl ">$ 300 / Day</p>
+                            <SwiperSlide className="h-auto group">
+                                <div className="mb-8 xl:mb-10">
+                                    <div
+                                        onClick={() => setActiveIdx(1)}
+                                        className={[
+                                            "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 xl:pb-12",
+                                            activeIdx === 1 ? "border-Neutral-700" : "border-transparent",
+                                            "hover:border-Neutral-700",
+                                        ].join(" ")}
+                                    >
+                                        <h3 className="text-Neutral-700 h3 text-center tracking-tight md:tracking-[0.02] mb-4">單日使用（暫不提供）</h3>
+                                        <p className="font-en bg-Neutral-200 text-center text-Neutral-700 text-2xl font-bold px-10 py-5 md:px-10 md:py-10 md:text-4xl ">$ 300 / Day</p>
 
-                                    <div className="flex flex-col gap-3 mt-4 md:gap-4 md:mt-7">
-                                        <p className="flex items-center gap-3 text-base text-Neutral-700">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            培訓區域
-                                        </p>
+                                        <div className="flex flex-col gap-3 mt-4 md:gap-4 md:mt-7">
+                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                培訓區域
+                                            </p>
 
-                                        <p className="flex items-center gap-3 text-base text-Neutral-700">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            <span className="font-en translate-y-0.5 text-base  text-Neutral-700">9:00-18:00</span>
-                                            可使用
-                                        </p>
+                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                <span className="font-en translate-y-0.5 text-base  text-Neutral-700">9:00-18:00</span>
+                                                可使用
+                                            </p>
 
-                                        <p className="flex items-center gap-3 text-base text-Neutral-700">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            非固定座位
-                                        </p>
+                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                非固定座位
+                                            </p>
 
-                                        <p className="flex items-center gap-3 text-base text-Neutral-700">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            共用置物櫃
-                                        </p>
+                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                共用置物櫃
+                                            </p>
 
-                                        <p className="flex items-center gap-3 text-base text-Neutral-700">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            免費無線網路
-                                        </p>
+                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                免費無線網路
+                                            </p>
 
-                                        <p className="flex items-center gap-3 text-base text-Neutral-700">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            免費咖啡茶水
-                                        </p>
+                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                免費咖啡茶水
+                                            </p>
 
-                                        <p className="flex items-center gap-3 text-base text-Neutral-700">
-                                            <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                            原價
-                                            <span className="font-en translate-y-0.5 text-base  text-Neutral-700 ">｜300 / Day</span>
-                                        </p>
+                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                                <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
+                                                原價
+                                                <span className="font-en translate-y-0.5 text-base  text-Neutral-700 ">｜300 / Day</span>
+                                            </p>
+                                        </div>
+
                                     </div>
-
                                 </div>
-                            </div>
-                        </SwiperSlide>
-                    </Swiper>
+                            </SwiperSlide>
+                        </Swiper>
                     </div>
-                <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLScEUjtPalxIGn0dVgO_1VLFxuq7is_0VUYROiGzktwze5QARw/viewform"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScEUjtPalxIGn0dVgO_1VLFxuq7is_0VUYROiGzktwze5QARw/viewform"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="
                         group flex items-center justify-center
                         h3 bg-violet-100 border-2 border-Neutral-700 text-Neutral-700
                         r-md p-4 md:py-6 md:text-8
                     "
                     >
-                    <span className="relative inline-flex items-center">
-                        <span className="transition-transform duration-700 group-hover:-translate-x-5">
-                        馬上填表單！
-                        </span>
+                        <span className="relative inline-flex items-center">
+                            <span className="transition-transform duration-700 group-hover:-translate-x-5">
+                                馬上填表單！
+                            </span>
 
-                        <img
-                        src={goIcon}
-                        alt="goIcon"
-                        aria-hidden="true"
-                        className="
+                            <img
+                                src={goIcon}
+                                alt="goIcon"
+                                aria-hidden="true"
+                                className="
                             absolute left-full top-1/2 -translate-y-1/2
                             ml-2
                             w-16 h-16
@@ -514,9 +514,9 @@ function AreaContent() {
                             transition-[opacity,transform] duration-1000 ease-out
                             group-hover:opacity-100 group-hover:scale-100
                         "
-                        />
-                    </span>
-                </a>
+                            />
+                        </span>
+                    </a>
                 </div>
 
 
