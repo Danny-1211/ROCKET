@@ -7,7 +7,7 @@ import UISm from '../../assets/imgs/about-training/UI-sm.png';
 import UILg from '../../assets/imgs/about-training/UI-lg.png';
 import { useEffect, useRef } from "react";
 
-function TrainingMarquee() {
+function TrainingBatch() {
     const trackRef = useRef(null);
     const contentRef = useRef(null);
     const animationRef = useRef(null);
@@ -221,7 +221,7 @@ function TrainingIntro() {
                     <div className="font-bold md:my-1.25">近期梯次</div>
                     <div className="border-2 border-Neutral-200"></div>
                     <div className="w-full md:my-1.25">
-                        <TrainingMarquee />
+                        <TrainingBatch />
                     </div>
                 </div>
             </div>
