@@ -16,36 +16,43 @@ import wistron_sm from "../../assets/imgs/partners/organizer-wistron-sm.png";
 const compony = [
   {
     name: "火箭隊",
+    unit: "主辦單位",
     imgUrl_lg: rocket_lg,
     imgUrl_sm: rocket_sm,
   },
   {
     name: "六角學院",
+    unit: "協辦單位",
     imgUrl_lg: hexSchool_lg,
     imgUrl_sm: hexSchool_sm,
   },
   {
     name: "好想工作室",
+    unit: "協辦單位",
     imgUrl_lg: goodIdea_lg,
     imgUrl_sm: goodIdea_sm,
   },
   {
     name: "凱鈿科技",
+    unit: "合作招募廠商",
     imgUrl_lg: kdan_lg,
     imgUrl_sm: kdan_sm,
   },
   {
     name: "鈦坦科技",
+    unit: "合作招募廠商",
     imgUrl_lg: titan_lg,
     imgUrl_sm: titan_sm,
   },
   {
     name: "坂和企業",
+    unit: "合作招募廠商",
     imgUrl_lg: skw_lg,
     imgUrl_sm: skw_sm,
   },
   {
     name: "緯創資通",
+    unit: "合作招募廠商",
     imgUrl_lg: wistron_lg,
     imgUrl_sm: wistron_sm,
   },
@@ -53,31 +60,36 @@ const compony = [
 
 function Host() {
   return (
-    <div className="w-full  bg-Neutral-200">
-      <p>主辦、協辦單位</p>
-      <div className=" flex lg:max-w-324">
-        {compony.map((item) => {
-          return (
-            <div className="">
-              <div className=" r-sm bg-Neutral-white ">
-                <img
-                  className="hidden lg:block object-cover w-full max-w-20 h-20"
-                  src={item.imgUrl_lg}
-                  alt={item.name}
-                />
-                <img
-                  className="lg:hidden"
-                  src={item.imgUrl_sm}
-                  alt={item.name}
-                />
+    <div className="">
+      <p className="h3">主辦、協辦單位</p>
+      <div className="w-full  bg-Neutral-200 py-10 px-18 flex flex-col items-start justify-start">
+        <div className=" flex lg:max-w-324 lg:gap-6">
+          {compony.map((item, index) => {
+            return (
+              <div className="flex flex-col items-start justify-start gap-4" key={index}>
+                <div className="  r-sm bg-Neutral-white flex items-center justify-center  lg:w-49 lg:h-37 lg:p-4">
+                  <img
+                    className="hidden lg:block w-full h-full object-contain  "
+                    src={item.imgUrl_lg}
+                    alt={item.name}
+                  />
+                  <img
+                    className="lg:hidden"
+                    src={item.imgUrl_sm}
+                    alt={item.name}
+                  />
+                </div>
+                <div className="flex flex-col justify-start items-start lg:gap-1">
+                  <p className="font-bold">{item.unit}</p>
+                  <p>{item.name}</p>
+                </div>
               </div>
-              <p className="font-bold">主辦單位</p>
-              <p>{item.name}</p>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
 }
+
 export default Host;
