@@ -1,7 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState } from "react";
-
-
 import { Autoplay, Mousewheel } from "swiper/modules";
 import "swiper/css";
 
@@ -52,10 +50,9 @@ const areas = [
         title: "休憩區",
         subtitle: "\\ 很 chill 的休憩區 /",
         desc: [
-            { text: "我們貼心提供 " },
+            { text: "我們貼心提供" },
             { text: "飲水機、冰箱、微波爐、果汁機、膠囊咖啡機", bold: true },
-            { text: " 及不定時茶包及小餅乾零食，我們想讓在工作認真打拼之餘的你也是需要中場休息補充能量，然後再輕鬆泡上一杯咖啡坐在吧台或懶骨頭放空冥想，讓自己 chill 一下轉換心情！" },
-        ],
+            { text: "及不定時茶包及小餅乾零食，我們想讓在工作認真打拼之餘的你也是需要中場休息補充能量，然後再輕鬆泡上一杯咖啡坐在吧台或懶骨頭放空冥想，讓自己 chill 一下轉換心情！" },],
         imgSm: restSm,
         imgLg: restLg,
         tag: "#硬體",
@@ -73,7 +70,9 @@ const areas = [
         id: "resident",
         title: "Resident",
         subtitle: "\\ 進駐者區域 / ",
-        desc: "我們的目標是凝聚更多開發者，為他們提供一個充滿活力的交流空間。在這裡，開發者可以互相學習、分享，透過交流讓自己的技能和視野得到更快速的成長。我們相信，一個好的環境能夠激發創意，促進專業能力的提升。",
+        desc:[{text:"我們的目標是凝聚更多開發者，為他們提供一個充滿活力的交流空間。在這裡，開發者可以互相學習、分享，透過交流讓自己的技能和視野得到更快速的成長。我們相信，一個好的環境能夠激發創意，促進專業能力的提升。"},
+            {text:"我們希望將這樣的場域擴展至高雄，誠摯地邀請您加入我們，一起為開發者打造一個交流與學習的樂園，讓大家在這裡彼此成長，共同推動科技產業的進步。"},
+        ],
         imgSm: resiSm,
         imgLg: resiLg,
         tag: "#硬體",
@@ -152,27 +151,43 @@ function ImageBlock({ title, imgSm, imgLg }) {
     );
 };
 function TextBlock({ subtitle, desc }) {
-    return (
-        <div className="max-w-123.5">
+  const isInline = Array.isArray(desc) && desc.some(seg => seg.bold);
 
+  return (
+    <div className="max-w-123.5">
+      <h3 className="body-1 text-Neutral-700 font-bold mb-2 md:mb-5">
+        {subtitle}
+      </h3>
+      {isInline && (
+        <p className="text-Neutral-600 text-sm md:text-base">
+          {desc.map((seg, idx) => (
+            <span
+              key={idx}
+              className={seg.bold ? "font-bold" : ""}
+            >
+              {seg.text}
+            </span>
+          ))}
+        </p>
+      )}
 
-            <h3 className="body-1 text-Neutral-700 font-bold mb-2 md:mb-5">
-                {subtitle}
-            </h3>
-
-            <p className="text-Neutral-600  text-sm md:text-base ">
-                {Array.isArray(desc)
-                    ? desc.map((seg, idx) => (
-                        <span key={idx} className={seg.bold ? "font-bold" : ""}>
-                            {seg.text}
-                        </span>
-                    ))
-                    : desc}
-            </p>
+      {!isInline && Array.isArray(desc) && (
+        <div className="space-y-4 text-Neutral-600 text-sm md:text-base">
+          {desc.map((seg, idx) => (
+            <p key={idx}>{seg.text}</p>
+          ))}
         </div>
-    );
-};
-// **
+      )}
+
+      {!Array.isArray(desc) && (
+        <p className="text-Neutral-600 text-sm md:text-base">
+          {desc}
+        </p>
+      )}
+    </div>
+  );
+}
+
 function ServiceIcon({ title, iconSm, iconLg, className = "" }) {
     return (
         <picture className={`block ${className}`.trim()}>
@@ -251,9 +266,9 @@ function AreaContent() {
     return (
         <>
             <section className="max-w-293 mx-auto px-12 ">
-                <h2 className="text-center h2 py-4 md:py-15">場域說明</h2>
+                <h2 className="text-Neutral-700 text-center h2 py-4 md:py-15">場域說明</h2>
                 <span className="relative inline-block mb-4">
-                    <span className="relative z-10 font-bold text-xl md:text-[28px]">#硬體</span>
+                    <span className="text-Neutral-700 relative z-10 font-bold text-xl md:text-[28px]">#硬體</span>
                     <span className="absolute inset-x-0 -inset-y-0.2 bottom-0 h-1/2 bg-accent-orange z-0"></span>
                 </span>
                 <div className="space-y-10 md:space-y-9">
@@ -280,10 +295,10 @@ function AreaContent() {
                 </div>
 
 
-                {/* ** */}
+
                 <div className="mt-12 md:mt-19">
                     <span className="relative inline-block mb-6 md:mb-7">
-                        <span className="relative z-10 font-bold text-xl md:text-[28px]">#服務</span>
+                        <span className="text-Neutral-700 relative z-10 font-bold text-xl md:text-[28px]">#服務</span>
                         <span className="absolute inset-x-0 -inset-y-0.2 bottom-0 h-1/2 bg-accent-orange z-0"></span>
                     </span>
 
@@ -303,7 +318,7 @@ function AreaContent() {
 
             <section className="w-full bg-Primary-Violet-200">
                 <div className=" mx-auto px-12 py-9 pb-12 md:py-15 md:mt-0 md:pb-20 max-w-293">
-                    {/* 氣泡 */}
+
                     <div className="inline-block relative mb-7.25 md:mb-6.25 md:pl-20">
                         <p className="r-sm outline-2 outline-Neutral-700  bg-white px-2.5 py-3 text-Neutral-700 text-sm md:px-4 md:text-base">
                             <span className="font-en font-bold">2023</span>
@@ -311,7 +326,7 @@ function AreaContent() {
                             <span className="font-bold">限定優惠價！</span>
                         </p>
 
-                        {/* 黑色border */}
+
                         <span
                             className="
                         absolute left-5.5 md:left-23 -bottom-[15px]
