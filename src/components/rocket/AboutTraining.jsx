@@ -5,6 +5,87 @@ import backendSm from '../../assets/imgs/about-training/backend-sm.png';
 import backendLg from '../../assets/imgs/about-training/backend-lg.png';
 import UISm from '../../assets/imgs/about-training/UI-sm.png';
 import UILg from '../../assets/imgs/about-training/UI-lg.png';
+import { useEffect, useRef } from "react";
+
+function TrainingMarquee() {
+    const trackRef = useRef(null);
+    const contentRef = useRef(null);
+    const animationRef = useRef(null);
+    const totalWidthRef = useRef(0);
+    const offsetRef = useRef(0);
+
+    const step = () => {
+        const track = trackRef.current;
+        if (!track) return;
+
+        offsetRef.current -= 1; // 每幀移動 1px，可調整速度
+        if (Math.abs(offsetRef.current) >= totalWidthRef.current) {
+            offsetRef.current = 0;
+        }
+
+        track.style.transform = `translateX(${offsetRef.current}px)`;
+        animationRef.current = requestAnimationFrame(step);
+    };
+
+    const startMarquee = () => {
+        if (animationRef.current) return;
+
+        const content = contentRef.current;
+        if (!content) return;
+
+        // 計算 totalWidth = 內容寬 + margin
+        const style = getComputedStyle(content);
+        const marginRight = parseFloat(style.marginRight || 0);
+        totalWidthRef.current = content.getBoundingClientRect().width + marginRight;
+
+        animationRef.current = requestAnimationFrame(step);
+    };
+
+    const stopMarquee = () => {
+        if (animationRef.current) {
+            cancelAnimationFrame(animationRef.current);
+            animationRef.current = null;
+        }
+        if (trackRef.current) {
+            trackRef.current.style.transform = "translateX(0)";
+            offsetRef.current = 0;
+        }
+    };
+
+    useEffect(() => {
+        const handleResize = () => {
+            stopMarquee();
+            if (window.innerWidth < 768) {
+                startMarquee();
+            }
+        };
+
+        // 初始判斷
+        handleResize();
+
+        window.addEventListener("resize", handleResize);
+        return () => {
+            stopMarquee();
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    return (
+        <div className="overflow-hidden w-full">
+            <div
+                ref={trackRef}
+                className="flex whitespace-nowrap will-change-transform"
+            >
+                <span ref={contentRef} className="mr-8">
+                    第十三梯 (2023/5/8~2023/11/30) 、第十四梯 (2023/7/31~2024/2/28)
+                </span>
+                <span className="mr-8">
+                    第十三梯 (2023/5/8~2023/11/30) 、第十四梯 (2023/7/31~2024/2/28)
+                </span>
+            </div>
+        </div>
+    );
+}
 
 function Highlight({ children }) {
     return (
@@ -137,11 +218,11 @@ function TrainingIntro() {
 
             <div className="max-w-83 w-full mt-7.5 mx-auto px-5 py-3 text-[14px] whitespace-nowrap bg-white shadow-[0_2px_4px_0_#E8E8E8] rounded-[50px] md:text-[16px] md:max-w-159 md:mt-9.5">
                 <div className="flex gap-3 overflow-x-hidden">
-                    <p className="font-bold md:my-1.25">近期梯次</p>
-                    <p className="border-2 border-Neutral-200"></p>
-                    <p className="w-full md:my-1.25">
-                        第十三梯 (2023/5/8~2023/11/30) 、第十四梯 (2023/7/31~2024/2/28)
-                    </p>
+                    <div className="font-bold md:my-1.25">近期梯次</div>
+                    <div className="border-2 border-Neutral-200"></div>
+                    <div className="w-full md:my-1.25">
+                        <TrainingMarquee />
+                    </div>
                 </div>
             </div>
         </div>
