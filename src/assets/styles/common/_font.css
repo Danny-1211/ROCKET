@@ -1,8 +1,4 @@
-@theme {
-  --font-zh: "Noto Sans TC", sans-serif;
-  --font-en: "Josefin Sans", sans-serif;
-}
-  
+
 @utility h1 {
   font-size: 32px;
   font-weight: 700;
