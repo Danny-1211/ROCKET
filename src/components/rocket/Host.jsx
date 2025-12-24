@@ -60,21 +60,26 @@ const compony = [
 
 function Host() {
   return (
-    <div className="">
-      <p className="h3">主辦、協辦單位</p>
-      <div className="w-full  bg-Neutral-200 py-10 px-18 flex flex-col items-start justify-start">
-        <div className=" flex lg:max-w-324 lg:gap-6">
+    <div className="relative mt-31">
+      <p className="h3 absolute top-2  left-18  -translate-y-1/2">
+        主辦、協辦單位
+      </p>
+      <div className="w-full  bg-Neutral-200  overflow-hidden  flex flex-col items-start justify-start flex-nowrap pt-9 pb-4 px-7 md:pt-24 lg:pt-24 lg:pb-10 lg:px-18">
+        <div className=" w-full overflow-x-auto flex [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] gap-5 px-12 lg:px-0 lg:gap-6">
           {compony.map((item, index) => {
             return (
-              <div className="flex flex-col items-start justify-start gap-4" key={index}>
-                <div className="  r-sm bg-Neutral-white flex items-center justify-center  lg:w-49 lg:h-37 lg:p-4">
+              <div
+                className=" flex flex-col items-start justify-start gap-4 shrink-0"
+                key={index}
+              >
+                <div className="  r-sm bg-Neutral-white flex items-center justify-center w-39 h-30 lg:w-49 lg:h-37 lg:p-4">
                   <img
                     className="hidden lg:block w-full h-full object-contain  "
                     src={item.imgUrl_lg}
                     alt={item.name}
                   />
                   <img
-                    className="lg:hidden"
+                    className="block w-25 h-full object-contain lg:hidden "
                     src={item.imgUrl_sm}
                     alt={item.name}
                   />
