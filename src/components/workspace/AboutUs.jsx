@@ -2,12 +2,12 @@ function AboutUs() {
     return(
         <>
             {/* 有做往上偏移與上方section重合，組合後測試 */}
-            <section className="w-full bg-Primary-Violet-200 py-9 r-lg px-12  md:px-18 md:py-15 -translate-y-4">
-            <div className="md:flex md:flex-row-reverse  md:gap-15 xl:gap-24 max-w-324 mx-auto">
+            <section className="w-full bg-Primary-Violet-200 py-9 r-lg px-12  min-[1440px]:rounded-b-none md:px-18 md:py-15 -translate-y-4">
+            <div className="md:flex md:flex-row-reverse  md:gap-6 xl:gap-24 max-w-324 mx-auto">
                 <div className="md:flex-1">
-                    <p className="font-en md:text-xl font-bold">About Us</p>
-                    <h2 className="h1 text-neutral-700 mb-4 md:mb-10">共同空間簡介</h2>
-                    <p className="text-neutral-700 mb-5 md:text-xl md:max-w-125 ">共同空間有近 100 坪的空間，在開放式的公共區域中有
+                    <p className="text-Neutral-700 font-en md:text-xl font-bold md:ml-1">About Us</p>
+                    <h2 className="h1 text-Neutral-700 mb-4 md:mb-10">共同空間簡介</h2>
+                    <p className="text-Neutral-700 mb-5 md:text-xl md:max-w-125 ">共同空間有近 100 坪的空間，在開放式的公共區域中有
                         <span className="font-bold">休憩區以及舒適沙發討論區</span>，在設計上盡量讓空間規劃簡單俐落，沒有多餘的裝修，我們營運空間的理念很簡單，希望藉由這裡能與更多「人」締結關係，並凝聚更多熱愛分享程式的進駐培訓者，讓這裡打造實現開發能量的集聚地。</p>
                 </div>
                 <div className="aspect-square border-white r-sm border-12 md:flex-1 md:aspect-[636/420]">
