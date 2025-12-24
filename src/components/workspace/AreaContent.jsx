@@ -321,7 +321,7 @@ function AreaContent() {
 
                     <div className="inline-block relative mb-7.25 md:mb-6.25 md:pl-20">
                         <p className="r-sm outline-2 outline-Neutral-700  bg-white px-2.5 py-3 text-sm md:px-4 md:text-base">
-                            <span className="font-en font-bold">2023</span>
+                            <span className="font-bold">2023</span>
                             <span> 年為試營運階段，進駐可享有</span>
                             <span className="font-bold">限定優惠價！</span>
                         </p>
@@ -376,7 +376,7 @@ function AreaContent() {
                                         ].join(" ")}
                                     >
                                         <h3 className="h3 text-center  mb-4">進駐者</h3>
-                                        <p className="font-en bg-Neutral-200 text-center text-2xl font-bold px-5 py-5  md:px-10 md:py-10 md:text-4xl ">$ 3,200 / Month</p>
+                                        <p className="bg-Neutral-200 text-center text-2xl font-bold px-5 py-5  md:px-10 md:py-10 md:text-4xl ">$ 3,200 / Month</p>
 
                                         <div className="flex flex-col gap-3 mt-4 md:mt-7 md:gap-4 ">
                                             <p className="flex items-center gap-3">
@@ -389,7 +389,7 @@ function AreaContent() {
 
                                             <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                                <span className="font-en translate-y-0.5 text-base ">9:00-18:00</span>
+                                                <span className="translate-y-0.5 text-base ">9:00-18:00</span>
                                                 可使用
                                             </p>
 
@@ -422,7 +422,7 @@ function AreaContent() {
                                             <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 原價
-                                                <span className="font-en translate-y-0.5 text-base ">｜3,500 / Month</span>
+                                                <span className="translate-y-0.5 text-base ">｜3,500 / Month</span>
                                             </p>
                                         </div>
 
@@ -441,7 +441,7 @@ function AreaContent() {
                                         ].join(" ")}
                                     >
                                         <h3 className="h3 text-center tracking-tight md:tracking-[0.02] mb-4">單日使用（暫不提供）</h3>
-                                        <p className="font-en bg-Neutral-200 text-center text-2xl font-bold px-10 py-5 md:px-10 md:py-10 md:text-4xl ">$ 300 / Day</p>
+                                        <p className="bg-Neutral-200 text-center text-2xl font-bold px-10 py-5 md:px-10 md:py-10 md:text-4xl ">$ 300 / Day</p>
 
                                         <div className="flex flex-col gap-3 mt-4 md:gap-4 md:mt-7">
                                             <p className="flex items-center gap-3 text-base">
@@ -451,7 +451,7 @@ function AreaContent() {
 
                                             <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                                <span className="font-en translate-y-0.5 text-base ">9:00-18:00</span>
+                                                <span className="translate-y-0.5 text-base ">9:00-18:00</span>
                                                 可使用
                                             </p>
 
@@ -478,7 +478,7 @@ function AreaContent() {
                                             <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 原價
-                                                <span className="font-en translate-y-0.5 text-base  ">｜300 / Day</span>
+                                                <span className="translate-y-0.5 text-base  ">｜300 / Day</span>
                                             </p>
                                         </div>
 
