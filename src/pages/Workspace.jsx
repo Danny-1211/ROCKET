@@ -1,7 +1,11 @@
+import AboutUs from "../components/workspace/AboutUs";
+import AreaContent from "../components/workspace/AreaContent";
+
 function Workspace() {
     return(
         <>
-            <h1>Workspace Page</h1>
+            <AboutUs/>
+            <AreaContent/>
         </>
     )
 }
