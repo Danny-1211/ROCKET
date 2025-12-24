@@ -2,6 +2,7 @@ import weijie from '../../assets/imgs/coach/coach-weijie.png';
 import yinmin from '../../assets/imgs/coach/coach-yinmin.png';
 import justin from '../../assets/imgs/coach/coach-justin.png';
 import casper from '../../assets/imgs/coach/coach-casper.png';
+import { useState } from 'react';
 
 const coachData = [
     {
@@ -92,16 +93,22 @@ const coachData = [
     },
 ];
 
-function CoachCard({ name, image }) {
+function CoachCard({ id, name, image, isActive, onClick }) {
     return (
-        <li className="
-            group relative w-83 h-50 flex-none
-            bg-white border-2 border-Neutral-700 r-lg
+        <li
+            onClick={onClick}
+            className={`
+                group relative w-83 h-50 flex-none cursor-pointer
+                border-2 border-Neutral-700 r-lg
+                transition-colors duration-200
 
-            md:w-62.75 md:h-40 md:r-md
-        ">
+                ${isActive ? 'bg-Primary-Blue-100' : 'bg-white'}
+
+                md:w-62.75 md:h-40 md:r-md
+            `}
+        >
             <img
-                className="absolute -top-5.5 w-55 h-55 md:w-45 md:h-45"
+                className="absolute -top-5.75 w-55 h-55 md:w-45 md:h-45"
                 src={image}
                 alt={name}
             />
@@ -122,9 +129,15 @@ function CoachCard({ name, image }) {
 }
 
 function Coaches() {
+    const [activeCoachId, setActiveCoachId] = useState(coachData[0].id);
+
+    const activeCoach = coachData.find(
+        (coach) => coach.id === activeCoachId
+    );
+
     return (
         <>
-            <div className="w-full mx-auto pt-10 pb-16.5 px-12 md:max-w-269 md:pt-16 md:pb-32 md:px-0">
+            <div className="w-full mx-auto pt-10 px-12 md:max-w-269 md:pt-16 md:px-0">
                 <h3 className="h3">教練團</h3>
                 <div className="w-full flex-none mt-3">
                     <div className="w-full mt-3 overflow-x-auto scrollbar-hide">
@@ -132,33 +145,30 @@ function Coaches() {
                             {coachData.map((coach) => (
                                 <CoachCard
                                     key={coach.id}
+                                    id={coach.id}
                                     name={coach.name}
                                     image={coach.image}
+                                    isActive={coach.id === activeCoachId}
+                                    onClick={() => setActiveCoachId(coach.id)}
                                 />
                             ))}
                         </ul>
                     </div>
                     <div className="mt-6 md:mt-7">
-                        <h4 className="body-1 font-bold">前端教練 | 廖洧杰</h4>
-                        <ul className="list-disc ml-5 mt-2 md:mt-3">
-                            <li>
-                                2016-2022 過往經歷：<a>六角學院校長</a>、<a>高雄火箭隊</a>前端教練
-                            </li>
-                            <li>
-                                2013-2019 成功案例：協助無資訊背景轉職工程師人數超過 500 位
-                            </li>
-                            <li>
-                                2013-2019 授課人數：線上+線下授課學員超過 25,000 位
-                            </li>
-                            <li>
-                                2014-2019 線下授課：<a>高雄大學前端領域兼任講師</a>
-                            </li>
-                            <li>
-                                2007-2019 實務經驗：經手超過 100 個實際專案，其領域不乏中小企業、政府專案、銀行系統
-                            </li>
+                        <h4 className="body-1 font-bold">{activeCoach.title}</h4>
+
+                        <ul className="list-disc ml-5 mt-2 md:mt-3 space-y-1">
+                            {activeCoach.list.map((item, index) => (
+                                <li key={index}>{item}</li>
+                            ))}
                         </ul>
                     </div>
                 </div>
+                <a className={`
+                    h3 p-5 bg-Primary-Blue-100 border-2 border-Neutral-700 r-md flex justify-center items-center translate-y-[50%]
+                    md:p-6
+                    hover:after:content-[url('../../assets/imgs/coach/go.png')]
+                `}>馬上報名</a>
             </div>
         </>
     )
