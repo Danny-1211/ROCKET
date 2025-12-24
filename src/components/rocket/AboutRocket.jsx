@@ -54,7 +54,7 @@ function JobCard({ card }) {
                                 <li
                                     key={skill.id}
                                     className="
-                                        font-en font-bold text-xs
+                                        font-bold text-xs
                                         text-Primary-Blue-400
                                         px-4 py-2
                                         border-2 border-Primary-Blue-300
@@ -69,7 +69,7 @@ function JobCard({ card }) {
                     </ul>
                 </div>
 
-                <p className="font-en font-bold text-Neutral-500 text-xl md:text-2xl">
+                <p className="font-bold text-Neutral-500 text-xl md:text-2xl">
                     {img_alt}
                 </p>
             </div>
@@ -99,7 +99,7 @@ function AboutRocket() {
                 >
                     <div className="max-w-83 w-full flex flex-col gap-4 md:max-w-132 md:gap-10">
                         <div>
-                            <h2 className="body-2 font-en font-bold">
+                            <h2 className="body-2 font-bold">
                                 About Rocket
                             </h2>
                             <h2 className="h1">什麼是火箭隊</h2>
