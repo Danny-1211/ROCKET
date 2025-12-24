@@ -2,7 +2,21 @@ import weijie from '../../assets/imgs/coach/coach-weijie.png';
 import yinmin from '../../assets/imgs/coach/coach-yinmin.png';
 import justin from '../../assets/imgs/coach/coach-justin.png';
 import casper from '../../assets/imgs/coach/coach-casper.png';
-import { useState } from 'react';
+import go from '../../assets/imgs/coach/go.png';
+import { useState, useRef, useEffect } from 'react';
+
+function LinkItem({ href, children }) {
+    return (
+        <a
+            className="underline decoration-Neutral-700 underline-offset-4 hover:text-Neutral-500"
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            {children}
+        </a>
+    );
+}
 
 const coachData = [
     {
@@ -12,12 +26,12 @@ const coachData = [
         title: "前端教練 | 廖洧杰",
         list: [
             <>
-                2016-2022 過往經歷：<a>六角學院校長</a>、<a>高雄火箭隊</a>前端教練
+                2016-2022 過往經歷：<LinkItem href="https://www.hexschool.com/">六角學院校長</LinkItem>、<LinkItem href="https://www.facebook.com/people/%E7%81%AB%E7%AE%AD%E9%9A%8A%E5%9F%B9%E8%A8%93%E7%87%9F/100039975056467/#">高雄火箭隊</LinkItem>前端教練
             </>,
             "2013-2019 成功案例：協助無資訊背景轉職工程師人數超過 500 位",
             "2013-2019 授課人數：線上+線下授課學員超過 25,000 位",
             <>
-                2014-2019 線下授課：<a>高雄大學前端領域兼任講師</a>
+                2014-2019 線下授課：<LinkItem href="https://www.im.nuk.edu.tw/?page_id=95">高雄大學前端領域兼任講師</LinkItem>
             </>,
             "2007-2019 實務經驗：經手超過 100 個實際專案，其領域不乏中小企業、政府專案、銀行系統"
         ]
@@ -76,10 +90,10 @@ const coachData = [
         title: "UI 教練 | 卡斯伯",
         list: [
             <>
-                2016-2022 過往經歷：<a>六角學院</a>共同創辦人
+                2016-2022 過往經歷：<LinkItem href="https://www.hexschool.com/">六角學院</LinkItem>共同創辦人
             </>,
             <>
-                2016-2022 近期授課經驗：<a>Vue 3 直播班講師</a>、<a>從 Figma 到 VSCode，設計做到網頁切版</a>
+                2016-2022 近期授課經驗：<LinkItem href="https://www.hexschool.com/courses/vue-training.html">Vue 3 直播班講師</LinkItem>、<LinkItem href="https://www.youtube.com/watch?v=qRZLtIcPdls&list=RDCMUC-b2nGm0xLzic38Byti0VjA&start_radio=1">從 Figma 到 VSCode，設計做到網頁切版</LinkItem>
             </>,
             "2013-2016 實務經驗：鴻海軟體工程師，設計師轉職前端工程師，擅長將複雜觀念用圖形化方式呈現",
             "六屆 IT 鐵人邦獲選紀錄",
@@ -92,6 +106,93 @@ const coachData = [
         ]
     },
 ];
+
+function useDragScroll() {
+    const ref = useRef(null);
+    const state = useRef({
+        isDown: false,
+        startX: 0,
+        scrollLeft: 0,
+        cardWidth: 0,
+        maxScroll: 0,
+    });
+
+    const updateDimensions = () => {
+        const el = ref.current;
+        if (!el) return;
+        const firstCard = el.querySelector('li');
+        const ul = el.querySelector('ul');
+        if (!firstCard || !ul) return;
+
+        const style = window.getComputedStyle(firstCard);
+        const marginRight = parseFloat(style.marginRight);
+        state.current.cardWidth = firstCard.offsetWidth + marginRight;
+        state.current.maxScroll = Math.max(0, ul.scrollWidth - el.clientWidth);
+    };
+
+    useEffect(() => {
+        updateDimensions();
+        window.addEventListener('resize', updateDimensions);
+        return () => window.removeEventListener('resize', updateDimensions);
+    }, []);
+
+    const onMouseDown = (e) => {
+        const el = ref.current;
+        if (!el) return;
+        state.current.isDown = true;
+        state.current.startX = e.pageX - el.offsetLeft;
+        state.current.scrollLeft = el.scrollLeft;
+    };
+
+    const stopDrag = () => {
+        state.current.isDown = false;
+    };
+
+    const onMouseMove = (e) => {
+        if (!state.current.isDown) return;
+        e.preventDefault();
+        const el = ref.current;
+        const x = e.pageX - el.offsetLeft;
+        const walk = x - state.current.startX;
+        let newScroll = state.current.scrollLeft - walk;
+
+        const { maxScroll } = state.current;
+        if (newScroll < 0) newScroll = 0;
+        if (newScroll > maxScroll) newScroll = maxScroll;
+
+        el.scrollLeft = newScroll;
+    };
+
+    const onDragStart = (e) => e.preventDefault();
+
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+
+        const handleWheel = (e) => {
+            e.preventDefault();
+            const { cardWidth, maxScroll } = state.current;
+            let newScroll = el.scrollLeft + (e.deltaY > 0 ? cardWidth : -cardWidth);
+            if (newScroll < 0) newScroll = 0;
+            if (newScroll > maxScroll) newScroll = maxScroll;
+            el.scrollLeft = newScroll;
+        };
+
+        el.addEventListener('wheel', handleWheel, { passive: false });
+        return () => el.removeEventListener('wheel', handleWheel);
+    }, []);
+
+    return {
+        ref,
+        handlers: {
+            onMouseDown,
+            onMouseUp: stopDrag,
+            onMouseLeave: stopDrag,
+            onMouseMove,
+            onDragStart,
+        },
+    };
+}
 
 function CoachCard({ id, name, image, isActive, onClick }) {
     return (
@@ -108,11 +209,15 @@ function CoachCard({ id, name, image, isActive, onClick }) {
             `}
         >
             <img
-                className="absolute -top-5.75 w-55 h-55 md:w-45 md:h-45"
                 src={image}
                 alt={name}
+                draggable={false}
+                onDragStart={(e) => e.preventDefault()}
+                className="
+                    absolute -top-5.75 w-55 h-55 md:w-45 md:h-45
+                    pointer-events-none select-none
+                "
             />
-
             <p className="
                 text-[18px] font-bold text-vertical
                 px-4 pl-3 pr-4
@@ -130,6 +235,7 @@ function CoachCard({ id, name, image, isActive, onClick }) {
 
 function Coaches() {
     const [activeCoachId, setActiveCoachId] = useState(coachData[0].id);
+    const drag = useDragScroll();
 
     const activeCoach = coachData.find(
         (coach) => coach.id === activeCoachId
@@ -140,8 +246,16 @@ function Coaches() {
             <div className="w-full mx-auto pt-10 px-12 md:max-w-269 md:pt-16 md:px-0">
                 <h3 className="h3">教練團</h3>
                 <div className="w-full flex-none mt-3">
-                    <div className="w-full mt-3 overflow-x-auto scrollbar-hide">
-                        <ul className="w-full flex gap-7 pt-10 md:gap-6">
+                    <div
+                        ref={drag.ref}
+                        {...drag.handlers}
+                        className="
+                            w-full mt-3 overflow-x-auto
+                            scrollbar-hide cursor-grab active:cursor-grabbing
+                            select-none
+                        "
+                    >
+                        <ul className="w-max flex gap-7 pt-10 md:gap-6">
                             {coachData.map((coach) => (
                                 <CoachCard
                                     key={coach.id}
@@ -164,11 +278,26 @@ function Coaches() {
                         </ul>
                     </div>
                 </div>
-                <a className={`
-                    h3 p-5 bg-Primary-Blue-100 border-2 border-Neutral-700 r-md flex justify-center items-center translate-y-[50%]
-                    md:p-6
-                    hover:after:content-[url('../../assets/imgs/coach/go.png')]
-                `}>馬上報名</a>
+                <a
+                    href='https://register.rocket-coding.com/'
+                    target='_blank'
+                    className={`
+                        h3 h-20 bg-Primary-Blue-100 border-2 border-Neutral-700 r-md flex justify-center items-center gap-5 translate-y-[50%]
+                        md:h-24
+                        group
+                    `}
+                >
+                    <h3 className="h3 translate-x-10.5 transform transition-all duration-500 group-hover:translate-x-0">馬上報名！</h3>
+                    <img
+                        src={go}
+                        alt="馬上報名"
+                        className="
+                            opacity-0 scale-50 transform transition-all duration-500
+                            group-hover:opacity-100 group-hover:scale-100
+                            origin-center
+                        "
+                    />
+                </a>
             </div>
         </>
     )
