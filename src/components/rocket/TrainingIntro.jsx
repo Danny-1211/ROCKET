@@ -3,7 +3,7 @@ import TrainingBatch from './TrainingBatch';
 export default function TrainingIntro() {
     return (
         <div className="relative">
-            <h2 className="h2 text-center text-Neutral-700 absolute inset-x-0 -top-5 md:-top-7">
+            <h2 className="h2 text-center absolute inset-x-0 -top-5 md:-top-7">
                 關於培訓
             </h2>
 

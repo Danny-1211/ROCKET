@@ -155,7 +155,7 @@ function TextBlock({ subtitle, desc }) {
 
     return (
         <div className="max-w-123.5">
-            <h3 className="body-1 text-Neutral-700 font-bold mb-2 md:mb-5">
+            <h3 className="body-1 font-bold mb-2 md:mb-5">
                 {subtitle}
             </h3>
             {isInline && (
@@ -209,7 +209,7 @@ function ServiceCard({ iconSm, iconLg, title, desc }) {
                 />
             </div>
             <div className="space-y-1 md:space-y-2">
-                <p className="body-3 font-bold text-Neutral-700 md:body-2">{title}</p>
+                <p className="body-3 font-bold md:body-2">{title}</p>
                 <p className="text-sm  text-Neutral-600  whitespace-normal lg:whitespace-pre-line ">{desc}</p>
             </div>
         </div>
@@ -266,9 +266,9 @@ function AreaContent() {
     return (
         <>
             <section className="max-w-293 mx-auto px-12 ">
-                <h2 className="text-Neutral-700 text-center h2 py-4 md:py-15">場域說明</h2>
+                <h2 className="text-center h2 py-4 md:py-15">場域說明</h2>
                 <span className="relative inline-block mb-4">
-                    <span className="text-Neutral-700 relative z-10 font-bold text-xl md:text-[28px]">#硬體</span>
+                    <span className="relative z-10 font-bold text-xl md:text-[28px]">#硬體</span>
                     <span className="absolute inset-x-0 -inset-y-0.2 bottom-0 h-1/2 bg-accent-orange z-0"></span>
                 </span>
                 <div className="space-y-10 md:space-y-9">
@@ -298,7 +298,7 @@ function AreaContent() {
 
                 <div className="mt-12 md:mt-19">
                     <span className="relative inline-block mb-6 md:mb-7">
-                        <span className="text-Neutral-700 relative z-10 font-bold text-xl md:text-[28px]">#服務</span>
+                        <span className="relative z-10 font-bold text-xl md:text-[28px]">#服務</span>
                         <span className="absolute inset-x-0 -inset-y-0.2 bottom-0 h-1/2 bg-accent-orange z-0"></span>
                     </span>
 
@@ -320,7 +320,7 @@ function AreaContent() {
                 <div className=" mx-auto px-12 py-9 pb-12 md:py-15 md:mt-0 md:pb-20 max-w-293">
 
                     <div className="inline-block relative mb-7.25 md:mb-6.25 md:pl-20">
-                        <p className="r-sm outline-2 outline-Neutral-700  bg-white px-2.5 py-3 text-Neutral-700 text-sm md:px-4 md:text-base">
+                        <p className="r-sm outline-2 outline-Neutral-700  bg-white px-2.5 py-3 text-sm md:px-4 md:text-base">
                             <span className="font-en font-bold">2023</span>
                             <span> 年為試營運階段，進駐可享有</span>
                             <span className="font-bold">限定優惠價！</span>
@@ -344,8 +344,8 @@ function AreaContent() {
                     </div>
 
 
-                    <h2 className="h2 text-Neutral-700 mb-3 md:mb-2">進駐費用</h2>
-                    <p className="text-Neutral-700 text-base md:text-xl  mb-5 md:mb-9">
+                    <h2 className="h2 mb-3 md:mb-2">進駐費用</h2>
+                    <p className="text-base md:text-xl  mb-5 md:mb-9">
                         進駐區域共分兩區塊：<span className="font-bold">培訓區域</span> 及{" "}
                         <span className="font-bold">進駐區域</span>，目前僅接受租期 1 個月以上，
                         單日暫不開放。
@@ -375,28 +375,28 @@ function AreaContent() {
                                             "hover:border-Neutral-700",
                                         ].join(" ")}
                                     >
-                                        <h3 className="text-Neutral-700 h3 text-center  mb-4">進駐者</h3>
-                                        <p className="font-en bg-Neutral-200 text-center text-Neutral-700 text-2xl font-bold px-5 py-5  md:px-10 md:py-10 md:text-4xl ">$ 3,200 / Month</p>
+                                        <h3 className="h3 text-center  mb-4">進駐者</h3>
+                                        <p className="font-en bg-Neutral-200 text-center text-2xl font-bold px-5 py-5  md:px-10 md:py-10 md:text-4xl ">$ 3,200 / Month</p>
 
                                         <div className="flex flex-col gap-3 mt-4 md:mt-7 md:gap-4 ">
                                             <p className="flex items-center gap-3">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 <span className="relative inline-block ">
-                                                    <span className="relative z-10 text-base text-Neutral-700">進駐區域</span>
+                                                    <span className="relative z-10 text-base">進駐區域</span>
                                                     <span className="absolute -inset-y-0.1  inset-x-0 bottom-0.5 h-2/5 bg-accent-orange z-0" />
                                                 </span>
                                             </p>
 
-                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                            <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                                <span className="font-en translate-y-0.5 text-base  text-Neutral-700">9:00-18:00</span>
+                                                <span className="font-en translate-y-0.5 text-base ">9:00-18:00</span>
                                                 可使用
                                             </p>
 
                                             <p className="flex items-center gap-3">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 <span className="relative inline-block ">
-                                                    <span className="relative z-10 text-base text-Neutral-700">固定座位</span>
+                                                    <span className="relative z-10 text-base">固定座位</span>
                                                     <span className="absolute -inset-y-0.1  inset-x-0 bottom-0.5 h-2/5 bg-accent-orange z-0" />
                                                 </span>
                                             </p>
@@ -404,25 +404,25 @@ function AreaContent() {
                                             <p className="flex items-center gap-3">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 <span className="relative inline-block ">
-                                                    <span className="relative z-10 text-base text-Neutral-700">專屬置物櫃</span>
+                                                    <span className="relative z-10 text-base">專屬置物櫃</span>
                                                     <span className="absolute -inset-y-0.1  inset-x-0 bottom-0.5 h-2/5 bg-accent-orange z-0" />
                                                 </span>
                                             </p>
 
-                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                            <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 免費無線網路
                                             </p>
 
-                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                            <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 免費咖啡茶水
                                             </p>
 
-                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                            <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 原價
-                                                <span className="font-en translate-y-0.5 text-base  text-Neutral-700">｜3,500 / Month</span>
+                                                <span className="font-en translate-y-0.5 text-base ">｜3,500 / Month</span>
                                             </p>
                                         </div>
 
@@ -440,45 +440,45 @@ function AreaContent() {
                                             "hover:border-Neutral-700",
                                         ].join(" ")}
                                     >
-                                        <h3 className="text-Neutral-700 h3 text-center tracking-tight md:tracking-[0.02] mb-4">單日使用（暫不提供）</h3>
-                                        <p className="font-en bg-Neutral-200 text-center text-Neutral-700 text-2xl font-bold px-10 py-5 md:px-10 md:py-10 md:text-4xl ">$ 300 / Day</p>
+                                        <h3 className="h3 text-center tracking-tight md:tracking-[0.02] mb-4">單日使用（暫不提供）</h3>
+                                        <p className="font-en bg-Neutral-200 text-center text-2xl font-bold px-10 py-5 md:px-10 md:py-10 md:text-4xl ">$ 300 / Day</p>
 
                                         <div className="flex flex-col gap-3 mt-4 md:gap-4 md:mt-7">
-                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                            <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 培訓區域
                                             </p>
 
-                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                            <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
-                                                <span className="font-en translate-y-0.5 text-base  text-Neutral-700">9:00-18:00</span>
+                                                <span className="font-en translate-y-0.5 text-base ">9:00-18:00</span>
                                                 可使用
                                             </p>
 
-                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                            <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 非固定座位
                                             </p>
 
-                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                            <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 共用置物櫃
                                             </p>
 
-                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                            <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 免費無線網路
                                             </p>
 
-                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                            <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 免費咖啡茶水
                                             </p>
 
-                                            <p className="flex items-center gap-3 text-base text-Neutral-700">
+                                            <p className="flex items-center gap-3 text-base">
                                                 <img className="w-4.5 shrink-0" src={checkSm} alt="checkIcon" />
                                                 原價
-                                                <span className="font-en translate-y-0.5 text-base  text-Neutral-700 ">｜300 / Day</span>
+                                                <span className="font-en translate-y-0.5 text-base  ">｜300 / Day</span>
                                             </p>
                                         </div>
 
@@ -493,7 +493,7 @@ function AreaContent() {
                         rel="noopener noreferrer"
                         className="
                         group flex items-center justify-center
-                        h3 bg-violet-100 border-2 border-Neutral-700 text-Neutral-700
+                        h3 bg-violet-100 border-2 border-Neutral-700
                         r-md p-4 md:py-6 md:text-8
                     "
                     >
