@@ -109,7 +109,7 @@ function SuccessCases() {
         <>
             <section className="pt-12 pb-23 md:pt-23 md:pb-25.5 md:px-18">
                 <div className="flex flex-col gap-4 md:gap-7 md:mx-auto">
-                    <h2 className="h2 text-center text-Neutral-700">
+                    <h2 className="h2 text-center">
                         成功案例
                     </h2>
                     <div className="w-full pl-12 flex flex-col gap-7 md:max-w-324 md:pl-0 md:mx-auto">
