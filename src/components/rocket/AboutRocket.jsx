@@ -88,7 +88,7 @@ function JobCard({ card }) {
 function AboutRocket() {
     return (
         <>
-            <section className="bg-Primary-Blue-100 r-lg md:px-18">
+            <section className="bg-Primary-Blue-100 r-lg md:px-3 min-[1024px]:rounded-none">
                 <div
                     className="
                         w-full px-12 py-9 mx-auto
@@ -97,7 +97,7 @@ function AboutRocket() {
                         md:max-w-324 md:justify-between md:items-start
                     "
                 >
-                    <div className="max-w-83 w-full flex flex-col gap-4 md:max-w-132 md:gap-10">
+                    <div className="w-full flex flex-col gap-4 md:max-w-132 md:gap-10">
                         <div>
                             <h2 className="body-2 font-bold">
                                 About Rocket
@@ -116,7 +116,7 @@ function AboutRocket() {
                         </p>
                     </div>
 
-                    <div className="max-w-83 w-full flex flex-col gap-6 md:max-w-163 md:gap-8 md:h-148 md:overflow-y-scroll md:overflow-x-hidden">
+                    <div className="w-full flex flex-col gap-6 md:max-w-163 md:gap-8 md:h-148 md:overflow-y-scroll md:overflow-x-hidden">
                         {jobCards.map(card => (
                             <JobCard key={card.id} card={card} />
                         ))}
