@@ -3,7 +3,8 @@ import yinmin from '../../assets/imgs/coach/coach-yinmin.png';
 import justin from '../../assets/imgs/coach/coach-justin.png';
 import casper from '../../assets/imgs/coach/coach-casper.png';
 import go from '../../assets/imgs/coach/go.png';
-import { useState, useRef, useEffect } from 'react';
+import useDragScroll from '../hooks/useDragScroll'
+import { useState } from 'react';
 
 function LinkItem({ href, children }) {
     return (
@@ -106,93 +107,6 @@ const coachData = [
         ]
     },
 ];
-
-function useDragScroll() {
-    const ref = useRef(null);
-    const state = useRef({
-        isDown: false,
-        startX: 0,
-        scrollLeft: 0,
-        cardWidth: 0,
-        maxScroll: 0,
-    });
-
-    const updateDimensions = () => {
-        const el = ref.current;
-        if (!el) return;
-        const firstCard = el.querySelector('li');
-        const ul = el.querySelector('ul');
-        if (!firstCard || !ul) return;
-
-        const style = window.getComputedStyle(firstCard);
-        const marginRight = parseFloat(style.marginRight);
-        state.current.cardWidth = firstCard.offsetWidth + marginRight;
-        state.current.maxScroll = Math.max(0, ul.scrollWidth - el.clientWidth);
-    };
-
-    useEffect(() => {
-        updateDimensions();
-        window.addEventListener('resize', updateDimensions);
-        return () => window.removeEventListener('resize', updateDimensions);
-    }, []);
-
-    const onMouseDown = (e) => {
-        const el = ref.current;
-        if (!el) return;
-        state.current.isDown = true;
-        state.current.startX = e.pageX - el.offsetLeft;
-        state.current.scrollLeft = el.scrollLeft;
-    };
-
-    const stopDrag = () => {
-        state.current.isDown = false;
-    };
-
-    const onMouseMove = (e) => {
-        if (!state.current.isDown) return;
-        e.preventDefault();
-        const el = ref.current;
-        const x = e.pageX - el.offsetLeft;
-        const walk = x - state.current.startX;
-        let newScroll = state.current.scrollLeft - walk;
-
-        const { maxScroll } = state.current;
-        if (newScroll < 0) newScroll = 0;
-        if (newScroll > maxScroll) newScroll = maxScroll;
-
-        el.scrollLeft = newScroll;
-    };
-
-    const onDragStart = (e) => e.preventDefault();
-
-    useEffect(() => {
-        const el = ref.current;
-        if (!el) return;
-
-        const handleWheel = (e) => {
-            e.preventDefault();
-            const { cardWidth, maxScroll } = state.current;
-            let newScroll = el.scrollLeft + (e.deltaY > 0 ? cardWidth : -cardWidth);
-            if (newScroll < 0) newScroll = 0;
-            if (newScroll > maxScroll) newScroll = maxScroll;
-            el.scrollLeft = newScroll;
-        };
-
-        el.addEventListener('wheel', handleWheel, { passive: false });
-        return () => el.removeEventListener('wheel', handleWheel);
-    }, []);
-
-    return {
-        ref,
-        handlers: {
-            onMouseDown,
-            onMouseUp: stopDrag,
-            onMouseLeave: stopDrag,
-            onMouseMove,
-            onDragStart,
-        },
-    };
-}
 
 function CoachCard({ id, name, image, isActive, onClick }) {
     return (
