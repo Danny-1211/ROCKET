@@ -51,6 +51,7 @@
   .body-2 { font-size: 20px; }
 }
 
-@utility font-en {
-  font-family: var(--font-en);
+@utility text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
 }
