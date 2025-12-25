@@ -12,6 +12,7 @@ import skw_lg from "../../assets/imgs/partners/organizer-skw-lg.png";
 import skw_sm from "../../assets/imgs/partners/organizer-skw-sm.png";
 import wistron_lg from "../../assets/imgs/partners/organizer-wistron-lg.png";
 import wistron_sm from "../../assets/imgs/partners/organizer-wistron-sm.png";
+import useDragScroll from '../hooks/useDragScroll'
 
 const compony = [
   {
@@ -59,38 +60,54 @@ const compony = [
 ];
 
 function Host() {
+  const drag = useDragScroll();
+
   return (
     <div className="relative mt-31">
       <p className="h3 absolute top-2  left-18  -translate-y-1/2">
         主辦、協辦單位
       </p>
       <div className="w-full  bg-Neutral-200  overflow-hidden  flex flex-col items-start justify-start flex-nowrap pt-9 pb-4 px-7 md:pt-24 lg:pt-24 lg:pb-10 lg:px-18">
-        <div className=" w-full overflow-x-auto flex [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] gap-5 px-12 lg:px-0 lg:gap-6">
-          {compony.map((item, index) => {
-            return (
-              <div
-                className=" flex flex-col items-start justify-start gap-4 shrink-0"
-                key={index}
-              >
-                <div className="  r-sm bg-Neutral-white flex items-center justify-center w-39 h-30 lg:w-49 lg:h-37 lg:p-4">
-                  <img
-                    className="hidden lg:block w-full h-full object-contain  "
-                    src={item.imgUrl_lg}
-                    alt={item.name}
-                  />
-                  <img
-                    className="block w-25 h-full object-contain lg:hidden "
-                    src={item.imgUrl_sm}
-                    alt={item.name}
-                  />
-                </div>
-                <div className="flex flex-col justify-start items-start lg:gap-1">
-                  <p className="font-bold">{item.unit}</p>
-                  <p>{item.name}</p>
-                </div>
-              </div>
-            );
-          })}
+        <div
+          ref={drag.ref}
+          {...drag.handlers}
+          className="
+            w-full
+            overflow-x-auto
+            cursor-grab active:cursor-grabbing
+            select-none
+            [&::-webkit-scrollbar]:hidden
+            [-ms-overflow-style:none]
+            [scrollbar-width:none]
+          "
+        >
+          <ul className="flex gap-5 px-12 lg:px-0 lg:gap-6 w-max">
+            {compony.map((item, index) => {
+              return (
+                <li
+                  className=" flex flex-col items-start justify-start gap-4 shrink-0"
+                  key={index}
+                >
+                  <div className="  r-sm bg-Neutral-white flex items-center justify-center w-39 h-30 lg:w-49 lg:h-37 lg:p-4">
+                    <img
+                      className="hidden lg:block w-full h-full object-contain  "
+                      src={item.imgUrl_lg}
+                      alt={item.name}
+                    />
+                    <img
+                      className="block w-25 h-full object-contain lg:hidden "
+                      src={item.imgUrl_sm}
+                      alt={item.name}
+                    />
+                  </div>
+                  <div className="flex flex-col justify-start items-start lg:gap-1">
+                    <p className="font-bold">{item.unit}</p>
+                    <p>{item.name}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </div>
