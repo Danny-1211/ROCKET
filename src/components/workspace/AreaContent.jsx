@@ -85,7 +85,7 @@ const services = [
         iconSm: serviceCoffeeSm,
         iconLg: serviceCoffeeLg,
         title: "咖啡、茶水",
-        desc: "飲水機、冰箱、微波爐、果汁機、\n膠囊咖啡機及不定時茶包及小餅乾零食",
+        desc: "飲水機、冰箱、微波爐、果汁機、\n膠囊咖啡機 及不定時茶包及小餅乾零食",
     },
     {
         id: "wifi",
@@ -218,7 +218,7 @@ function ServiceCard({ iconSm, iconLg, title, desc }) {
 
 function WorkspaceCarousel() {
     return (
-        <div className="w-full overflow-hidden ">
+        <div className="w-full overflow-hidden  ">
             <Swiper
                 modules={[Mousewheel, Autoplay]}
                 autoplay={{ delay: 2000, disableOnInteraction: false }} //換張秒數控制
@@ -226,7 +226,7 @@ function WorkspaceCarousel() {
 
                 speed={600}
                 spaceBetween={16}
-                slidesPerView={1.3}
+                slidesPerView={1.275}
                 mousewheel={{
                     forceToAxis: true,
                     sensitivity: 1,
@@ -235,9 +235,9 @@ function WorkspaceCarousel() {
 
                 centeredSlides
                 breakpoints={{
-                    768: { slidesPerView: 2.24, spaceBetween: 24 },
-                    1024: { slidesPerView: 2.24, spaceBetween: 24 },
-                    1440: { slidesPerView: 2.5, spaceBetween: 24 },
+                    768: { slidesPerView: 1.7, spaceBetween: 24 },
+                    1024: { slidesPerView: 2, spaceBetween: 24 },
+                    1440: { slidesPerView: 2.223, spaceBetween: 24 },
                 }}
             >
                 {slides.map((s) => (
@@ -248,7 +248,7 @@ function WorkspaceCarousel() {
                                 <img
                                     src={s.sm}
                                     alt={s.alt}
-                                    className="block w-full aspect-[332/240] md:aspect-[636/424] object-center"
+                                    className="block w-full aspect-332/240 md:aspect-636/424 object-center"
                                     loading="lazy"
                                 />
                             </picture>
@@ -265,9 +265,9 @@ function AreaContent() {
     const [activeIdx, setActiveIdx] = useState(0);
     return (
         <>
-            <section className="max-w-293 mx-auto px-12 ">
+            <section className="max-w-293 mx-auto px-12 mt-9 md:mt-5">
                 <h2 className="text-center h2 py-4 md:py-15">場域說明</h2>
-                <span className="relative inline-block mb-4">
+                <span className="relative inline-block mb-4 md:mb-7">
                     <span className="relative z-10 font-bold text-xl md:text-[28px]">#硬體</span>
                     <span className="absolute inset-x-0 -inset-y-0.2 bottom-0 h-1/2 bg-accent-orange z-0"></span>
                 </span>
@@ -276,7 +276,7 @@ function AreaContent() {
                         const isOdd = i % 2 === 1;
 
                         return (
-                            <div
+                            <article
                                 key={area.id}
                                 className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 md:items-center "
                             >
@@ -289,7 +289,7 @@ function AreaContent() {
                                 <div className={isOdd ? "md:order-1" : "md:order-2"}>
                                     <TextBlock {...area} />
                                 </div>
-                            </div>
+                            </article>
                         );
                     })}
                 </div>
@@ -297,16 +297,18 @@ function AreaContent() {
 
 
                 <div className="mt-12 md:mt-19">
-                    <span className="relative inline-block mb-6 md:mb-7">
+                    <span className="relative inline-block mb-7 md:mb-8">
                         <span className="relative z-10 font-bold text-xl md:text-[28px]">#服務</span>
                         <span className="absolute inset-x-0 -inset-y-0.2 bottom-0 h-1/2 bg-accent-orange z-0"></span>
                     </span>
 
-                    <div className="space-y-7 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-7 md:gap-y-12">
+                    <ul className="space-y-7 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-7 md:gap-y-12">
                         {services.map((service) => (
-                            <ServiceCard key={service.id} {...service} />
+                            <li key={service.id}>
+                                <ServiceCard {...service} />
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
 
 
@@ -329,18 +331,18 @@ function AreaContent() {
 
                         <span
                             className="
-                        absolute left-5.5 md:left-23 -bottom-[15px]
+                        absolute left-5.5 md:left-23 -bottom-3.75
                         h-0 w-0
-                        border-l-[13px] border-l-transparent
-                        border-r-[12px] border-r-transparent
-                        border-t-[15px] border-t-Neutral-700"/>
+                        border-l-13 border-l-transparent
+                        border-r-12 border-r-transparent
+                        border-t-15 border-t-Neutral-700"/>
                         <span
                             className="
-                        absolute left-6 md:left-23 -bottom-[12px]
+                        absolute left-6 md:left-23.5 -bottom-3
                         h-0 w-0
-                        border-l-[11px] border-l-transparent
-                        border-r-[11px] border-r-transparent
-                        border-t-[15px] border-t-white"/>
+                        border-l-11 border-l-transparent md:border-l-11
+                        border-r-10 border-r-transparent md:border-r-10 
+                        border-t-13 border-t-white"/>
                     </div>
 
 
@@ -370,9 +372,8 @@ function AreaContent() {
                                     <div
                                         onClick={() => setActiveIdx(0)}
                                         className={[
-                                            "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 lg:pb-12",
-                                            activeIdx === 0 ? "border-Neutral-700" : "border-transparent",
-                                            "hover:border-Neutral-700",
+                                            "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 lg:pb-14",
+                                            activeIdx === 0 ? "border-Neutral-700" : "border-transparent hover:border-Neutral-700",
                                         ].join(" ")}
                                     >
                                         <h3 className="h3 text-center  mb-4">進駐者</h3>
@@ -435,9 +436,8 @@ function AreaContent() {
                                     <div
                                         onClick={() => setActiveIdx(1)}
                                         className={[
-                                            "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 xl:pb-12",
-                                            activeIdx === 1 ? "border-Neutral-700" : "border-transparent",
-                                            "hover:border-Neutral-700",
+                                            "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 lg:pb-14",
+                                            activeIdx === 1 ? "border-Neutral-700" : "border-transparent hover:border-Neutral-700",
                                         ].join(" ")}
                                     >
                                         <h3 className="h3 text-center tracking-tight md:tracking-[0.02] mb-4">單日使用（暫不提供）</h3>
