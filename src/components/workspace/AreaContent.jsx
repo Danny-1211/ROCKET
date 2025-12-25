@@ -218,7 +218,7 @@ function ServiceCard({ iconSm, iconLg, title, desc }) {
 
 function WorkspaceCarousel() {
     return (
-        <div className="w-full overflow-hidden ">
+        <div className="w-full overflow-hidden  ">
             <Swiper
                 modules={[Mousewheel, Autoplay]}
                 autoplay={{ delay: 2000, disableOnInteraction: false }} //換張秒數控制
@@ -226,7 +226,7 @@ function WorkspaceCarousel() {
 
                 speed={600}
                 spaceBetween={16}
-                slidesPerView={1.2}
+                slidesPerView={1.275}
                 mousewheel={{
                     forceToAxis: true,
                     sensitivity: 1,
@@ -235,9 +235,9 @@ function WorkspaceCarousel() {
 
                 centeredSlides
                 breakpoints={{
-                    768: { slidesPerView: 2.24, spaceBetween: 24 },
-                    1024: { slidesPerView: 2.24, spaceBetween: 24 },
-                    1440: { slidesPerView: 2.5, spaceBetween: 24 },
+                    768: { slidesPerView: 1.7, spaceBetween: 24 },
+                    1024: { slidesPerView: 2, spaceBetween: 24 },
+                    1440: { slidesPerView: 2.223, spaceBetween: 24 },
                 }}
             >
                 {slides.map((s) => (
