@@ -248,7 +248,7 @@ function WorkspaceCarousel() {
                                 <img
                                     src={s.sm}
                                     alt={s.alt}
-                                    className="block w-full aspect-[332/240] md:aspect-[636/424] object-center"
+                                    className="block w-full aspect-332/240 md:aspect-636/424 object-center"
                                     loading="lazy"
                                 />
                             </picture>
@@ -329,18 +329,18 @@ function AreaContent() {
 
                         <span
                             className="
-                        absolute left-5.5 md:left-23 -bottom-[15px]
+                        absolute left-5.5 md:left-23 -bottom-3.75
                         h-0 w-0
-                        border-l-[13px] border-l-transparent
-                        border-r-[12px] border-r-transparent
-                        border-t-[15px] border-t-Neutral-700"/>
+                        border-l-13 border-l-transparent
+                        border-r-12 border-r-transparent
+                        border-t-15 border-t-Neutral-700"/>
                         <span
                             className="
-                        absolute left-6 md:left-23 -bottom-[12px]
+                        absolute left-6 md:left-23.5 -bottom-3
                         h-0 w-0
-                        border-l-[11px] border-l-transparent
-                        border-r-[11px] border-r-transparent
-                        border-t-[15px] border-t-white"/>
+                        border-l-11 border-l-transparent md:border-l-11
+                        border-r-10 border-r-transparent md:border-r-10 
+                        border-t-13 border-t-white"/>
                     </div>
 
 
