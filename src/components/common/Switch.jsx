@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import rocket_sm from "../../assets/imgs/icon/banner-logo-rocket-sm.svg";
 import rocket_card_btn_sm from "../../assets/imgs/icon/banner-btn-rocket-sm.svg";
 import rocket_card_highlight_sm from "../../assets/imgs/icon/ic-highlight-coworking-sm.svg";
@@ -12,14 +12,33 @@ import coworkin_lg from "../../assets/imgs/icon/banner-logo-coworking-lg.svg";
 import coworkin_card_btn_lg from "../../assets/imgs/icon/banner-btn-coworking-lg.svg";
 import coworkin_card_highlight_lg from "../../assets/imgs/icon/ic-highlight-rocket-lg.svg";
 import bannerBgImg from "../../assets/imgs/bg/banner-bg.png";
+
 function Switch() {
-  const banner_bg = `bg-[url('../assets/imgs/bg/banner-bg.png')]`;
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const isRocket = 1;
   const isWorkspace = 2;
-  const [isSelected, setIsSelected] = useState(isRocket);
+
+  // 根據路徑判斷當前選中的是哪一個
+  // 預設是火箭隊 (isRocket)
+  // 若路徑包含 /workspace 則是共同空間 (isWorkspace)
+  let isSelected = isRocket;
+  if (location.pathname.includes("/workspace")) {
+    isSelected = isWorkspace;
+  }
+
+  const handleRocketClick = () => {
+    navigate("/rocket");
+  };
+
+  const handleWorkspaceClick = () => {
+    navigate("/workspace");
+  };
 
   // 未選中時淡化 60% ，Hover時恢復 100%
-  const unselectedStyle = "opacity-60 group-hover:opacity-100 transition-opacity duration-300";
+  const unselectedStyle =
+    "opacity-60 group-hover:opacity-100 transition-opacity duration-300";
 
   return (
     <>
@@ -31,12 +50,11 @@ function Switch() {
         <div className="btn-group-mobile flex flex-col items-center justify-center gap-11.5">
           <div
             className={`rocket-btn-mobile relative bg-Neutral-white border-2 border-Neutral-300 r-md px-6 py-6 w-73.5 h-33.5 
-            ${
-              isSelected === isRocket
+            ${isSelected === isRocket
                 ? "shadow-[8px_8px_#BFC9F0]"
                 : "drop-shadow-none"
-            }`}
-            onClick={() => setIsSelected(isRocket)}
+              }`}
+            onClick={handleRocketClick}
           >
             {isSelected !== isRocket && (
               <div className="absolute inset-0 bg-Neutral-white/60 z-20" />
@@ -44,9 +62,8 @@ function Switch() {
             <img
               src={rocket_card_highlight_sm}
               alt="highlight"
-              className={`absolute w-9 h-10 object-contain -top-5 -left-5 z-10 ${
-                isSelected === isRocket ? "block" : "hidden"
-              }`}
+              className={`absolute w-9 h-10 object-contain -top-5 -left-5 z-10 ${isSelected === isRocket ? "block" : "hidden"
+                }`}
             />
             <div className="rocket-title-mobile flex items-center justify-start gap-2">
               <img src={rocket_sm} alt="rocket" />
@@ -68,12 +85,11 @@ function Switch() {
           </div>
           <div
             className={`workspace-btn-mobile relative bg-Neutral-white border-2 border-Neutral-300 r-md px-6 py-6 w-73.5 h-33.5 
-                        ${
-                          isSelected === isWorkspace
-                            ? "shadow-[8px_8px_#EEE5FF]"
-                            : "drop-shadow-none"
-                        }`}
-            onClick={() => setIsSelected(isWorkspace)}
+                        ${isSelected === isWorkspace
+                ? "shadow-[8px_8px_#EEE5FF]"
+                : "drop-shadow-none"
+              }`}
+            onClick={handleWorkspaceClick}
           >
             {isSelected !== isWorkspace && (
               <div className="absolute inset-0 bg-Neutral-white/60 z-20" />
@@ -81,9 +97,8 @@ function Switch() {
             <img
               src={coworkin_card_highlight_sm}
               alt="highlight"
-              className={`absolute w-9 h-10 object-contain -top-5 -left-5 z-10 ${
-                isSelected === isWorkspace ? "block" : "hidden"
-              }`}
+              className={`absolute w-9 h-10 object-contain -top-5 -left-5 z-10 ${isSelected === isWorkspace ? "block" : "hidden"
+                }`}
             />
             <div className="rocket-title-mobile flex items-center justify-start gap-2">
               <img src={coworkin_sm} alt="coworkin" />
@@ -113,19 +128,17 @@ function Switch() {
       >
         <div className="btn-group-desktop flex items-center justify-center w-full gap-10 py-30.5 transition-transform duration-300 origin-center md:scale-[0.65] lg:scale-100 xl:scale-100">
           <div
-            className={`group-rocket-desktop group flex flex-col cursor-pointer transform-all duration-300 ${
-              isSelected !== isRocket ? "hover:-translate-y-3" : ""
-            }`}
+            className={`group-rocket-desktop group flex flex-col cursor-pointer transform-all duration-300 ${isSelected !== isRocket ? "hover:-translate-y-3" : ""
+              }`}
           >
             <div
               className={`rocket-btn-desktop relative bg-Neutral-white border-2 border-Neutral-300 r-md flex flex-col justify-center items-center w-110 h-112
-                    ${
-                      isSelected === isRocket
-                        ? "shadow-[8px_8px_#BFC9F0]"
-                        : "drop-shadow-none"
-                    }
+                    ${isSelected === isRocket
+                  ? "shadow-[8px_8px_#BFC9F0]"
+                  : "drop-shadow-none"
+                }
                 `}
-              onClick={() => setIsSelected(isRocket)}
+              onClick={handleRocketClick}
             >
               {isSelected !== isRocket && (
                 <div className="absolute inset-0 bg-Neutral-white/60 z-20 transition-opacity duration-300 group-hover:opacity-0 pointer-events-none" />
@@ -134,9 +147,8 @@ function Switch() {
               <img
                 src={rocket_card_highlight_lg}
                 alt="highlight"
-                className={`absolute w-9 h-10 object-contain -top-10 -right-5 z-10 ${
-                  isSelected === isRocket ? "block" : "hidden"
-                }`}
+                className={`absolute w-9 h-10 object-contain -top-10 -right-5 z-10 ${isSelected === isRocket ? "block" : "hidden"
+                  }`}
               />
 
               <div
@@ -148,17 +160,15 @@ function Switch() {
               </div>
 
               <div
-                className={`rocket-icon-desktop pt-6 pb-4 ${
-                  !(isSelected === isRocket) ? unselectedStyle : ""
-                }`}
+                className={`rocket-icon-desktop pt-6 pb-4 ${!(isSelected === isRocket) ? unselectedStyle : ""
+                  }`}
               >
                 <img className="object-contain" src={rocket_lg} alt="rocket" />
               </div>
 
               <div
-                className={`rocket-tag-desktop flex flex-col justify-center items-center ${
-                  !(isSelected === isRocket) ? unselectedStyle : ""
-                }`}
+                className={`rocket-tag-desktop flex flex-col justify-center items-center ${!(isSelected === isRocket) ? unselectedStyle : ""
+                  }`}
               >
                 <p className="body-2 font-bold"># 軟體工程師培訓營</p>
                 <p className="body-2 font-bold"># 全程免費的扎實訓練</p>
@@ -177,11 +187,10 @@ function Switch() {
               <img
                 src={rocket_card_btn_lg}
                 alt="rocket"
-                className={`w-25 h-27 object-cover z-30 ${
-                  !(isSelected === isRocket)
+                className={`w-25 h-27 object-cover z-30 ${!(isSelected === isRocket)
                     ? "opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                     : ""
-                }`}
+                  }`}
               />
             </div>
           </div>
@@ -191,19 +200,17 @@ function Switch() {
           </div>
 
           <div
-            className={`group-workspace-desktop group flex flex-col cursor-pointer transform-all duration-300 ${
-              isSelected !== isWorkspace ? "hover:-translate-y-3" : ""
-            }`}
+            className={`group-workspace-desktop group flex flex-col cursor-pointer transform-all duration-300 ${isSelected !== isWorkspace ? "hover:-translate-y-3" : ""
+              }`}
           >
             <div
               className={`workspace-btn-desktop relative bg-Neutral-white border-2 border-Neutral-300 r-md flex flex-col justify-center items-center w-110 h-112
-                    ${
-                      isSelected === isWorkspace
-                        ? "shadow-[8px_8px_#EEE5FF]"
-                        : "drop-shadow-none"
-                    }
+                    ${isSelected === isWorkspace
+                  ? "shadow-[8px_8px_#EEE5FF]"
+                  : "drop-shadow-none"
+                }
                 `}
-              onClick={() => setIsSelected(isWorkspace)}
+              onClick={handleWorkspaceClick}
             >
               {isSelected !== isWorkspace && (
                 <div className="absolute inset-0 bg-Neutral-white/60 z-20 transition-opacity duration-300 group-hover:opacity-0 pointer-events-none" />
@@ -212,9 +219,8 @@ function Switch() {
               <img
                 src={coworkin_card_highlight_lg}
                 alt="highlight"
-                className={`absolute w-9 h-10 object-contain -top-10 -right-5 z-10 ${
-                  isSelected === isWorkspace ? "block" : "hidden"
-                }`}
+                className={`absolute w-9 h-10 object-contain -top-10 -right-5 z-10 ${isSelected === isWorkspace ? "block" : "hidden"
+                  }`}
               />
 
               <div
@@ -225,9 +231,8 @@ function Switch() {
                 <p className=" h4 text-Neutral-500 ">Co-working Space</p>
               </div>
               <div
-                className={`workspace-icon-desktop pt-6 pb-4 ${
-                  !(isSelected === isWorkspace) ? unselectedStyle : ""
-                }`}
+                className={`workspace-icon-desktop pt-6 pb-4 ${!(isSelected === isWorkspace) ? unselectedStyle : ""
+                  }`}
               >
                 <img
                   className="object-contain"
@@ -237,9 +242,8 @@ function Switch() {
               </div>
 
               <div
-                className={`workspace-tag-desktop flex flex-col justify-center items-center ${
-                  !(isSelected === isWorkspace) ? unselectedStyle : ""
-                }`}
+                className={`workspace-tag-desktop flex flex-col justify-center items-center ${!(isSelected === isWorkspace) ? unselectedStyle : ""
+                  }`}
               >
                 <p className="body-2 font-bold"># 超 chill 的共同工作場域</p>
                 <p className="body-2 font-bold"># 餅乾、零食、咖啡應有盡有</p>
@@ -258,11 +262,10 @@ function Switch() {
               <img
                 src={coworkin_card_btn_lg}
                 alt="workspace"
-                className={`w-25 h-27 object-cover z-30 ${
-                  !(isSelected === isWorkspace)
+                className={`w-25 h-27 object-cover z-30 ${!(isSelected === isWorkspace)
                     ? "opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                     : ""
-                }`}
+                  }`}
               />
             </div>
           </div>
