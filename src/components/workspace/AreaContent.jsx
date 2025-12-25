@@ -370,7 +370,7 @@ function AreaContent() {
                                     <div
                                         onClick={() => setActiveIdx(0)}
                                         className={[
-                                            "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 lg:pb-12",
+                                            "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 lg:pb-14",
                                             activeIdx === 0 ? "border-Neutral-700" : "border-transparent",
                                             "hover:border-Neutral-700",
                                         ].join(" ")}
@@ -435,8 +435,8 @@ function AreaContent() {
                                     <div
                                         onClick={() => setActiveIdx(1)}
                                         className={[
-                                            "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 xl:pb-12",
-                                            activeIdx === 1 ? "border-Neutral-700" : "border-transparent",
+                                            "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 lg:pb-14",
+                                            activeIdx === 0 ? "border-Neutral-700" : "border-transparent",
                                             "hover:border-Neutral-700",
                                         ].join(" ")}
                                     >
