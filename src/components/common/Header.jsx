@@ -31,7 +31,7 @@ function Header() {
   }, []);
 
   return (
-    <div className="fixed w-full overflow-hidden bg-Neutral-white z-20">
+    <header className="fixed w-full overflow-hidden bg-Neutral-white z-20">
       {/* tailwind 只能用靜態寫死的方式寫秒數所以這裡用 style 計算 */}
       <div
         className={`w-max flex py-2 marquee bg-Neutral-white animate-[marquee_linear_infinite]`}
@@ -53,7 +53,7 @@ function Header() {
           <Content />
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 export default Header;
