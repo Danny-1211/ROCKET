@@ -373,8 +373,7 @@ function AreaContent() {
                                         onClick={() => setActiveIdx(0)}
                                         className={[
                                             "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 lg:pb-14",
-                                            activeIdx === 0 ? "border-Neutral-700" : "border-transparent",
-                                            "hover:border-Neutral-700",
+                                            activeIdx === 0 ? "border-Neutral-700" : "border-transparent hover:border-Neutral-700",
                                         ].join(" ")}
                                     >
                                         <h3 className="h3 text-center  mb-4">進駐者</h3>
@@ -438,8 +437,7 @@ function AreaContent() {
                                         onClick={() => setActiveIdx(1)}
                                         className={[
                                             "bg-Neutral-white r-md p-8 border-2 cursor-pointer xl:px-20 lg:pt-9 lg:pb-14",
-                                            activeIdx === 0 ? "border-Neutral-700" : "border-transparent",
-                                            "hover:border-Neutral-700",
+                                            activeIdx === 1 ? "border-Neutral-700" : "border-transparent hover:border-Neutral-700",
                                         ].join(" ")}
                                     >
                                         <h3 className="h3 text-center tracking-tight md:tracking-[0.02] mb-4">單日使用（暫不提供）</h3>
