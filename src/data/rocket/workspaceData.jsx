@@ -130,129 +130,37 @@ export const slides = [
     { id: 8, sm: carousel8Sm, lg: carousel8Lg, alt: "carousel 8" },
 ];
 
-
-
-function ImageBlock({ title, imgSm, imgLg }) {
-    return (
-        <div className=" overflow-hidden">
-            <picture>
-
-                <source media="(min-width: 768px)" srcSet={imgLg} />
-                <img
-                    src={imgSm}
-                    alt={title}
-                    className="w-full aspect-[332/222]"
-                />
-            </picture>
-        </div>
-    );
-};
-function TextBlock({ subtitle, desc }) {
-    const isInline = Array.isArray(desc) && desc.some(seg => seg.bold);
-
-    return (
-        <div className="max-w-123.5">
-            <h3 className="body-1 font-bold mb-2 md:mb-5">
-                {subtitle}
-            </h3>
-            {isInline && (
-                <p className="text-Neutral-600 text-sm md:text-base">
-                    {desc.map((seg, idx) => (
-                        <span
-                            key={idx}
-                            className={seg.bold ? "font-bold" : ""}
-                        >
-                            {seg.text}
-                        </span>
-                    ))}
-                </p>
-            )}
-
-            {!isInline && Array.isArray(desc) && (
-                <div className="space-y-4 text-Neutral-600 text-sm md:text-base">
-                    {desc.map((seg, idx) => (
-                        <p key={idx}>{seg.text}</p>
-                    ))}
-                </div>
-            )}
-
-            {!Array.isArray(desc) && (
-                <p className="text-Neutral-600 text-sm md:text-base">
-                    {desc}
-                </p>
-            )}
-        </div>
-    );
-}
-
-function ServiceIcon({ title, iconSm, iconLg, className = "" }) {
-    return (
-        <picture className={`block ${className}`.trim()}>
-            <source media="(min-width: 768px)" srcSet={iconLg} />
-            <img src={iconSm} alt={title} className="block w-full h-full" />
-        </picture>
-    );
-}
-//
-function ServiceCard({ iconSm, iconLg, title, desc }) {
-    return (
-        <div className="flex gap-4 md:flex-col md:items-center md:gap-6 md:text-center">
-            <div className="shrink-0 w-12 h-12 md:w-30 md:h-30">
-                <ServiceIcon
-                    title={title}
-                    iconSm={iconSm}
-                    iconLg={iconLg}
-                    className="w-full h-full"
-                />
-            </div>
-            <div className="space-y-1 md:space-y-2">
-                <p className="body-3 font-bold md:body-2">{title}</p>
-                <p className="text-sm  text-Neutral-600  whitespace-normal lg:whitespace-pre-line ">{desc}</p>
-            </div>
-        </div>
-    );
-}
-
-function WorkspaceCarousel() {
-    return (
-        <div className="w-full overflow-hidden  ">
-            <Swiper
-                modules={[Mousewheel, Autoplay]}
-                autoplay={{ delay: 2000, disableOnInteraction: false }} //換張秒數控制
-                loop
-
-                speed={600}
-                spaceBetween={16}
-                slidesPerView={1.275}
-                mousewheel={{
-                    forceToAxis: true,
-                    sensitivity: 1,
-                    releaseOnEdges: true,
-                }}
-
-                centeredSlides
-                breakpoints={{
-                    768: { slidesPerView: 1.7, spaceBetween: 24 },
-                    1024: { slidesPerView: 2, spaceBetween: 24 },
-                    1440: { slidesPerView: 2.223, spaceBetween: 24 },
-                }}
-            >
-                {slides.map((s) => (
-                    <SwiperSlide key={s.id}>
-                        <div className="r-sm overflow-hidden">
-                            <picture>
-                                <source media="(min-width: 768px)" srcSet={s.lg} />
-                                <img
-                                    src={s.sm}
-                                    alt={s.alt}
-                                    className="block w-full aspect-332/240 md:aspect-636/424 object-center"
-                                    loading="lazy"
-                                />
-                            </picture>
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </div>
-    );
-}
+export const pricingPlans = [
+  {
+    idx: 0,
+    title: "進駐者",
+    titleClass: "",
+    price: "$ 3,200 / Month",
+    priceClass: "px-5 py-5 md:px-10 md:py-10 md:text-4xl",
+    items: [
+      { type: "highlight", text: "進駐區域" },
+      { type: "time", time: "9:00-18:00", text: "可使用" },
+      { type: "highlight", text: "固定座位" },
+      { type: "highlight", text: "專屬置物櫃" },
+      { type: "text", text: "免費無線網路" },
+      { type: "text", text: "免費咖啡茶水" },
+      { type: "oldPrice", prefix: "原價", value: "｜3,500 / Month" },
+    ],
+  },
+  {
+    idx: 1,
+    title: "單日使用（暫不提供）",
+    titleClass: "tracking-tight md:tracking-[0.02]",
+    price: "$ 300 / Day",
+    priceClass: "px-10 py-5 md:px-10 md:py-10 md:text-4xl",
+    items: [
+      { type: "text", text: "培訓區域" },
+      { type: "time", time: "9:00-18:00", text: "可使用" },
+      { type: "text", text: "非固定座位" },
+      { type: "text", text: "共用置物櫃" },
+      { type: "text", text: "免費無線網路" },
+      { type: "text", text: "免費咖啡茶水" },
+      { type: "oldPrice", prefix: "原價", value: "｜300 / Day" },
+    ],
+  },
+];
