@@ -1,38 +1,7 @@
-const SKILLS = {
-    html: { id: "html", label: "HTML" },
-    css: { id: "css", label: "CSS" },
-    js: { id: "js", label: "JavaScript" },
-    csharp: { id: "csharp", label: "C#" },
-    dotnet: { id: "dotnet", label: ".NET" },
-    figma: { id: "figma", label: "Figma" }
-};
-
-const jobCards = [
-    {
-        id: 1,
-        title: "前端工程師",
-        tag: ["html", "css", "js"],
-        img_src: "./src/assets/imgs/about-rocket/frontend.png",
-        img_alt: "Front-end engineer"
-    },
-    {
-        id: 2,
-        title: "後端工程師",
-        tag: ["csharp", "dotnet"],
-        img_src: "./src/assets/imgs/about-rocket/backend.png",
-        img_alt: "Back-end engineer"
-    },
-    {
-        id: 3,
-        title: "UI 設計師",
-        tag: ["figma", "html", "css"],
-        img_src: "./src/assets/imgs/about-rocket/ui.png",
-        img_alt: "UI designer"
-    }
-];
+import jobCardData from '../../data/rocket/jobCardData'
 
 function JobCard({ card }) {
-    const { title, tag, img_src, img_alt } = card;
+    const { title, tags, img_src, img_alt } = card;
 
     return (
         <div
@@ -47,12 +16,10 @@ function JobCard({ card }) {
                     <h3 className="h3">{title}</h3>
 
                     <ul className="text-xs flex gap-2 flex-wrap">
-                        {tag.map(skillId => {
-                            const skill = SKILLS[skillId];
-
+                        {tags.map(tag => {
                             return (
                                 <li
-                                    key={skill.id}
+                                    key={tag}
                                     className="
                                         font-bold text-xs
                                         text-Primary-Blue-400
@@ -62,7 +29,7 @@ function JobCard({ card }) {
                                         md:text-base
                                     "
                                 >
-                                    {skill.label}
+                                    {tag}
                                 </li>
                             );
                         })}
@@ -117,7 +84,7 @@ function AboutRocket() {
                     </div>
 
                     <div className="w-full flex flex-col gap-6 md:max-w-163 md:gap-8 md:h-148 md:overflow-y-scroll md:overflow-x-hidden">
-                        {jobCards.map(card => (
+                        {jobCardData.map(card => (
                             <JobCard key={card.id} card={card} />
                         ))}
                     </div>
