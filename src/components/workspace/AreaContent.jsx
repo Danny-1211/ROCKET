@@ -85,7 +85,7 @@ const services = [
         iconSm: serviceCoffeeSm,
         iconLg: serviceCoffeeLg,
         title: "咖啡、茶水",
-        desc: "飲水機、冰箱、微波爐、果汁機、\n膠囊咖啡機及不定時茶包及小餅乾零食",
+        desc: "飲水機、冰箱、微波爐、果汁機、\n膠囊咖啡機 及不定時茶包及小餅乾零食",
     },
     {
         id: "wifi",
@@ -226,7 +226,7 @@ function WorkspaceCarousel() {
 
                 speed={600}
                 spaceBetween={16}
-                slidesPerView={1.3}
+                slidesPerView={1.2}
                 mousewheel={{
                     forceToAxis: true,
                     sensitivity: 1,
@@ -265,9 +265,9 @@ function AreaContent() {
     const [activeIdx, setActiveIdx] = useState(0);
     return (
         <>
-            <section className="max-w-293 mx-auto px-12 ">
+            <section className="max-w-293 mx-auto px-12 mt-9 md:mt-5">
                 <h2 className="text-center h2 py-4 md:py-15">場域說明</h2>
-                <span className="relative inline-block mb-4">
+                <span className="relative inline-block mb-4 md:mb-7">
                     <span className="relative z-10 font-bold text-xl md:text-[28px]">#硬體</span>
                     <span className="absolute inset-x-0 -inset-y-0.2 bottom-0 h-1/2 bg-accent-orange z-0"></span>
                 </span>
@@ -276,7 +276,7 @@ function AreaContent() {
                         const isOdd = i % 2 === 1;
 
                         return (
-                            <div
+                            <article
                                 key={area.id}
                                 className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 md:items-center "
                             >
@@ -289,7 +289,7 @@ function AreaContent() {
                                 <div className={isOdd ? "md:order-1" : "md:order-2"}>
                                     <TextBlock {...area} />
                                 </div>
-                            </div>
+                            </article>
                         );
                     })}
                 </div>
@@ -297,16 +297,18 @@ function AreaContent() {
 
 
                 <div className="mt-12 md:mt-19">
-                    <span className="relative inline-block mb-6 md:mb-7">
+                    <span className="relative inline-block mb-7 md:mb-8">
                         <span className="relative z-10 font-bold text-xl md:text-[28px]">#服務</span>
                         <span className="absolute inset-x-0 -inset-y-0.2 bottom-0 h-1/2 bg-accent-orange z-0"></span>
                     </span>
 
-                    <div className="space-y-7 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-7 md:gap-y-12">
+                    <ul className="space-y-7 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-7 md:gap-y-12">
                         {services.map((service) => (
-                            <ServiceCard key={service.id} {...service} />
+                            <li key={service.id}>
+                                <ServiceCard {...service} />
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
 
 
