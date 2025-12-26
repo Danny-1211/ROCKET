@@ -2,7 +2,7 @@ function AboutUs() {
     return (
         <>
             {/* 有做往上偏移與上方section重合，組合後測試 */}
-            <section className="w-full bg-Primary-Violet-200 py-9 r-lg px-12  min-[1440px]:rounded-b-none md:px-18 md:py-15 -translate-y-4">
+            <section className="w-full bg-Primary-Violet-200 py-9 r-lg px-12  min-[1440px]:rounded-none md:px-18 md:py-15 -translate-y-4">
                 <div className="md:flex md:flex-row-reverse  md:gap-6 xl:gap-24 max-w-324 mx-auto">
                     <div className="md:flex-1">
                         <p className="md:text-[20px] font-bold md:ml-1">About Us</p>
