@@ -15,7 +15,7 @@ const questionIconsSm = [Q1_SM, Q2_SM, Q3_SM, Q4_SM, Q5_SM];
 
 // 重點提示標籤
 const BoldText = ({ children }) => (
-  <span className="font-bold">{children}</span>
+  <span className="emphasis">{children}</span>
 );
 // 外部連結標籤
 const ExternalLink = ({ href, children }) => (

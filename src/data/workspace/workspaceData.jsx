@@ -130,36 +130,36 @@ export const slides = [
 ];
 
 export const pricingPlans = [
-  {
-    idx: 0,
-    title: "進駐者",
-    titleClass: "",
-    price: "$ 3,200 / Month",
-    priceClass: "px-5 py-5 md:px-10 md:py-10 md:text-4xl",
-    items: [
-      { type: "highlight", text: "進駐區域" },
-      { type: "time", time: "9:00-18:00", text: "可使用" },
-      { type: "highlight", text: "固定座位" },
-      { type: "highlight", text: "專屬置物櫃" },
-      { type: "text", text: "免費無線網路" },
-      { type: "text", text: "免費咖啡茶水" },
-      { type: "oldPrice", prefix: "原價", value: "｜3,500 / Month" },
-    ],
-  },
-  {
-    idx: 1,
-    title: "單日使用（暫不提供）",
-    titleClass: "tracking-tight md:tracking-[0.02]",
-    price: "$ 300 / Day",
-    priceClass: "px-10 py-5 md:px-10 md:py-10 md:text-4xl",
-    items: [
-      { type: "text", text: "培訓區域" },
-      { type: "time", time: "9:00-18:00", text: "可使用" },
-      { type: "text", text: "非固定座位" },
-      { type: "text", text: "共用置物櫃" },
-      { type: "text", text: "免費無線網路" },
-      { type: "text", text: "免費咖啡茶水" },
-      { type: "oldPrice", prefix: "原價", value: "｜300 / Day" },
-    ],
-  },
+    {
+        idx: 0,
+        title: "進駐者",
+        titleClass: "",
+        price: "$ 3,200 / Month",
+        priceClass: "px-5 py-5 md:px-10 md:py-10",
+        items: [
+            { type: "highlight", text: "進駐區域" },
+            { type: "time", time: "9:00-18:00", text: "可使用" },
+            { type: "highlight", text: "固定座位" },
+            { type: "highlight", text: "專屬置物櫃" },
+            { type: "text", text: "免費無線網路" },
+            { type: "text", text: "免費咖啡茶水" },
+            { type: "oldPrice", prefix: "原價", value: "｜3,500 / Month" },
+        ],
+    },
+    {
+        idx: 1,
+        title: "單日使用（暫不提供）",
+        titleClass: "tracking-tight md:tracking-[0.02]",
+        price: "$ 300 / Day",
+        priceClass: "px-10 py-5 md:px-10 md:py-10",
+        items: [
+            { type: "text", text: "培訓區域" },
+            { type: "time", time: "9:00-18:00", text: "可使用" },
+            { type: "text", text: "非固定座位" },
+            { type: "text", text: "共用置物櫃" },
+            { type: "text", text: "免費無線網路" },
+            { type: "text", text: "免費咖啡茶水" },
+            { type: "oldPrice", prefix: "原價", value: "｜300 / Day" },
+        ],
+    },
 ];

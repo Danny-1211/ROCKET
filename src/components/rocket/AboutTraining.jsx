@@ -105,7 +105,7 @@ function TrainingCard({ title, bg, imageSm, imageLg, reverse = false, children }
             "
             style={{ backgroundImage: `url(${bg})` }}
         >
-            <h3 className="body-1 font-bold max-w-36.5 px-5 py-3 bg-white border-2 border-Neutral-700 shadow-[4px_4px_0_0_#363636] r-sm absolute inset-x-0 -top-8 left-12 whitespace-nowrap md:max-w-51 md:px-10 md:left-10">
+            <h3 className="body-1 max-w-36.5 px-5 py-3 bg-white border-2 border-Neutral-700 shadow-[4px_4px_0_0_#363636] r-sm absolute inset-x-0 -top-8 left-12 whitespace-nowrap md:max-w-51 md:px-10 md:left-10">
                 {title}
             </h3>
 
@@ -126,7 +126,7 @@ function TrainingCard({ title, bg, imageSm, imageLg, reverse = false, children }
 function TrainingSection({ heading, content, list }) {
     return (
         <div>
-            <h4 className="body-2 font-bold border-b-4 border-Neutral-700 inline-block mb-3">
+            <h4 className="body-2 border-b-4 border-Neutral-700 inline-block mb-3">
                 {heading}
             </h4>
 
