@@ -28,7 +28,7 @@ function CoachCard({ id, name, image, isActive, onClick }) {
                 "
             />
             <p className="
-                text-[18px] font-bold text-vertical
+                text-[18px] emphasis text-vertical
                 px-4 pl-3 pr-4
                 absolute -top-6 right-8
                 bg-white border-2 border-Neutral-700 r-sm
