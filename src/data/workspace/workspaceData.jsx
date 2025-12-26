@@ -34,7 +34,6 @@ import carousel7Lg from "../../assets/imgs/carousel/carousel7-lg.png"
 import carousel8Sm from "../../assets/imgs/carousel/carousel8-sm.png"
 import carousel8Lg from "../../assets/imgs/carousel/carousel8-lg.png"
 import checkSm from "../../assets/imgs/icon/ic-check-sm.svg";
-
 import goIcon from "../../assets/imgs/icon/ic-go-coworking.svg";
 
 

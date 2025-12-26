@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { areas, services, slides } from "../../data/rocket/workspaceData";
+import { areas, services, slides } from "../../data/workspace/workspaceData";
 import PricingPlansCard from "./PricingPlan";
 import { ImageBlock, ServiceCard, TextBlock } from "./SpaceDescription";
 import WorkspaceCarousel from "./WorkspaceCarousel";

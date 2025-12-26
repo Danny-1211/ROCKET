@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Mousewheel } from "swiper/modules";
-import { slides } from "../../data/rocket/workspaceData";
+import { slides } from "../../data/workspace/workspaceData";
 import "swiper/css";
 
 

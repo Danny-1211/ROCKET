@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel } from "swiper/modules";
 import "swiper/css";
-import { pricingPlans } from "../../data/rocket/workspaceData";
+import { pricingPlans } from "../../data/workspace/workspaceData";
 
 
 function PricingPlansCard({ activeIdx, setActiveIdx, checkIcon }) {
