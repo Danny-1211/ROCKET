@@ -38,7 +38,7 @@ function SuccessCases() {
     const drag = useDragScroll();
 
     return (
-        <section className="pt-12 pb-23 md:pt-23 md:pb-25.5 md:px-3">
+        <section className="pt-12 pb-23 pl-12 md:pt-23 md:pb-25.5 md:px-3">
             <div className="flex flex-col gap-4 md:gap-7 md:mx-auto md:max-w-324">
                 <h2 className="h2 text-center">成功案例</h2>
 
@@ -51,9 +51,10 @@ function SuccessCases() {
                         select-none
                         w-full
                         scrollbar-hide
+                        pr-12 md:pr-0
                     "
                 >
-                    <div className="flex flex-col items-center gap-7 min-w-max px-12 md:px-0 md:mx-auto">
+                    <div className="flex flex-col items-center gap-7 min-w-max md:mx-auto">
                         {caseImages.map((row, index) => (
                             <DragRow key={index} images={row} />
                         ))}

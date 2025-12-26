@@ -52,7 +52,7 @@ function Coaches() {
 
     return (
         <>
-            <div className="w-full mx-auto pt-10 px-12 md:max-w-269 md:pt-16 md:px-0">
+            <div className="w-full mx-auto pt-10 pl-12 md:max-w-269 md:pt-16 md:pl-0">
                 <h3 className="h3">教練團</h3>
                 <div className="w-full flex-none mt-3">
                     <div
@@ -62,6 +62,7 @@ function Coaches() {
                             w-full mt-3 overflow-x-auto
                             scrollbar-hide cursor-grab active:cursor-grabbing
                             select-none
+                            pr-12 md:pr-0
                         "
                     >
                         <ul className="w-max flex gap-7 pt-10 md:gap-6">
@@ -77,8 +78,8 @@ function Coaches() {
                             ))}
                         </ul>
                     </div>
-                    <div className="mt-6 md:mt-7">
-                        <h4 className="body-1 font-bold">{activeCoach.title}</h4>
+                    <div className="mt-6 mr-12 md:mr-0 md:mt-7">
+                        <h4 className="body-1">{activeCoach.title}</h4>
 
                         <ul className="list-disc ml-5 mt-2 md:mt-3 space-y-1">
                             {activeCoach.list.map((item, index) => (
@@ -90,18 +91,22 @@ function Coaches() {
                 <a
                     href='https://register.rocket-coding.com/'
                     target='_blank'
+                    rel="noopener noreferrer"
                     className={`
-                        h3 h-20 bg-Primary-Blue-100 border-2 border-Neutral-700 r-md flex justify-center items-center gap-5 translate-y-[50%]
-                        md:h-24
+                        h3 h-20 bg-Primary-Blue-100 border-2 border-Neutral-700 r-md flex justify-center items-center gap-5 translate-y-[50%] mr-12 md:mr-0
+                        md:h-24 active:bg-Primary-Blue-200
                         group
                     `}
                 >
-                    <h3 className="h3 translate-x-10.5 transform transition-all duration-500 group-hover:translate-x-0">馬上報名！</h3>
+                    <h3 className="h3 translate-x-10.5 transform transition-all duration-500 group-hover:translate-x-0">
+                        馬上報名！
+                    </h3>
                     <img
                         src={go}
                         alt="馬上報名"
+                        aria-hidden="true"
                         className="
-                            opacity-0 scale-50 transform transition-all duration-500
+                            opacity-0 scale-30 transform transition-all duration-500
                             group-hover:opacity-100 group-hover:scale-100
                             origin-center
                         "
