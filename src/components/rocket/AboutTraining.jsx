@@ -85,7 +85,7 @@ function TrainingIntro() {
 
             <div className="max-w-83 w-full mt-7.5 mx-auto px-5 py-3 text-[14px] whitespace-nowrap bg-white shadow-[0_2px_4px_0_#E8E8E8] rounded-[50px] md:text-[16px] md:max-w-159 md:mt-9.5">
                 <div className="flex gap-3 overflow-x-hidden">
-                    <div className="font-bold md:my-1.25">近期梯次</div>
+                    <div className="emphasis md:my-1.25">近期梯次</div>
                     <div className="border-2 border-Neutral-200"></div>
                     <div className="w-full md:my-1.25">
                         <TrainingBatch />
@@ -105,7 +105,7 @@ function TrainingCard({ title, bg, imageSm, imageLg, reverse = false, children }
             "
             style={{ backgroundImage: `url(${bg})` }}
         >
-            <h3 className="body-1 font-bold max-w-36.5 px-5 py-3 bg-white border-2 border-Neutral-700 shadow-[4px_4px_0_0_#363636] r-sm absolute inset-x-0 -top-8 left-12 whitespace-nowrap md:max-w-51 md:px-10 md:left-10">
+            <h3 className="body-1 max-w-36.5 px-5 py-3 bg-white border-2 border-Neutral-700 shadow-[4px_4px_0_0_#363636] r-sm absolute inset-x-0 -top-8 left-12 whitespace-nowrap md:max-w-51 md:px-10 md:left-10">
                 {title}
             </h3>
 
@@ -126,7 +126,7 @@ function TrainingCard({ title, bg, imageSm, imageLg, reverse = false, children }
 function TrainingSection({ heading, content, list }) {
     return (
         <div>
-            <h4 className="body-2 font-bold border-b-4 border-Neutral-700 inline-block mb-3">
+            <h4 className="body-2 border-b-4 border-Neutral-700 inline-block mb-3">
                 {heading}
             </h4>
 

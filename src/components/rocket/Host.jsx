@@ -42,7 +42,7 @@ function Host() {
                     />
                   </div>
                   <div className="flex flex-col justify-start items-start md:gap-1">
-                    <p className="font-bold">{item.unit}</p>
+                    <p className="emphasis">{item.unit}</p>
                     <p>{item.name}</p>
                   </div>
                 </li>

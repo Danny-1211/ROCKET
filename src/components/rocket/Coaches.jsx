@@ -78,7 +78,7 @@ function Coaches() {
                         </ul>
                     </div>
                     <div className="mt-6 md:mt-7">
-                        <h4 className="body-1 font-bold">{activeCoach.title}</h4>
+                        <h4 className="body-1">{activeCoach.title}</h4>
 
                         <ul className="list-disc ml-5 mt-2 md:mt-3 space-y-1">
                             {activeCoach.list.map((item, index) => (

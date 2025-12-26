@@ -8,7 +8,7 @@ export function ImageBlock({ title, imgSm, imgLg }) {
                 <img
                     src={imgSm}
                     alt={title}
-                    className="w-full aspect-[332/222]"
+                    className="w-full aspect-332/222"
                 />
             </picture>
         </div>
@@ -20,15 +20,15 @@ export function TextBlock({ subtitle, desc }) {
 
     return (
         <div className="max-w-123.5">
-            <h3 className="body-1 font-bold mb-2 md:mb-5">
+            <h3 className="body-1 mb-2 md:mb-5">
                 {subtitle}
             </h3>
             {isInline && (
-                <p className="text-Neutral-600 text-sm md:text-base">
+                <p className="text-Neutral-600 text-[14px] md:text-[16px]">
                     {desc.map((seg, idx) => (
                         <span
                             key={idx}
-                            className={seg.bold ? "font-bold" : ""}
+                            className={seg.bold ? "emphasis" : ""}
                         >
                             {seg.text}
                         </span>
@@ -37,7 +37,7 @@ export function TextBlock({ subtitle, desc }) {
             )}
 
             {!isInline && Array.isArray(desc) && (
-                <div className="space-y-4 text-Neutral-600 text-sm md:text-base">
+                <div className="space-y-4 text-Neutral-600 text-[14px] md:text-[16px]">
                     {desc.map((seg, idx) => (
                         <p key={idx}>{seg.text}</p>
                     ))}
@@ -45,7 +45,7 @@ export function TextBlock({ subtitle, desc }) {
             )}
 
             {!Array.isArray(desc) && (
-                <p className="text-Neutral-600 text-sm md:text-base">
+                <p className="text-Neutral-600 text-[14px] md:text-[16px]">
                     {desc}
                 </p>
             )}
@@ -74,8 +74,8 @@ export function ServiceCard({ iconSm, iconLg, title, desc }) {
                 />
             </div>
             <div className="space-y-1 md:space-y-2">
-                <p className="body-3 font-bold md:body-2">{title}</p>
-                <p className="text-sm  text-Neutral-600  whitespace-normal lg:whitespace-pre-line ">{desc}</p>
+                <p className="body-3 md:body-2">{title}</p>
+                <p className="text-[14px]  text-Neutral-600  whitespace-normal lg:whitespace-pre-line ">{desc}</p>
             </div>
         </div>
     );
