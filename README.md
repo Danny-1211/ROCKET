@@ -67,7 +67,8 @@
     - `assets/imgs`：圖片、Icon 等靜態資源
     - `assets/styles`：共用字型樣式、主體顏色、動畫效果
     - `components/`：共用區塊元件
-    - `components/hooks`：橫向拖動捲動功能
+    - `components/hooks`：自訂 hooks 函式
+    - `data`： 渲染畫面用的靜態資料
     - `pages/`：頁面元件
 ```text=
 ROCKET/
