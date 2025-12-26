@@ -44,7 +44,7 @@ function Switch() {
     <>
       {/* Mobile Version  */}
       <section
-        className={`w-full  py-30 px-10 md:hidden lg:hidden`}
+        className={`w-full  pt-31 pb-15 px-10 md:hidden lg:hidden`}
         style={{ backgroundImage: `url(${bannerBgImg})` }}
       >
         <div className="btn-group-mobile flex flex-col items-center justify-center gap-11.5">
@@ -123,10 +123,10 @@ function Switch() {
 
       {/* Desktop Version  */}
       <section
-        className={`hidden w-full bg-repeat md:flex md:items-center md:justify-center  lg:flex lg:items-center lg:justify-center overflow-hidden`}
+        className={`hidden w-full bg-repeat md:flex md:items-center md:justify-center   pt-39 pb-25 lg:flex lg:items-center lg:justify-center overflow-hidden`}
         style={{ backgroundImage: `url(${bannerBgImg})` }}
       >
-        <div className="btn-group-desktop flex items-center justify-center w-full gap-10 py-30.5 transition-transform duration-300 origin-center md:scale-[0.65] lg:scale-100 xl:scale-100">
+        <div className="btn-group-desktop flex items-center justify-center w-full gap-10  transition-transform duration-300 origin-center md:scale-[0.65] lg:scale-100 xl:scale-100">
           <div
             className={`group-rocket-desktop group flex flex-col cursor-pointer transform-all duration-300 ${isSelected !== isRocket ? "hover:-translate-y-3" : ""
               }`}
