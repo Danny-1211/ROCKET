@@ -1,0 +1,96 @@
+import jobCardData from '../../data/rocket/jobCardData'
+
+function JobCard({ card }) {
+    const { title, tags, img_src, img_alt } = card;
+
+    return (
+        <div
+            className="
+                bg-white r-lg px-5 py-4
+                flex flex-col gap-34
+                md:min-w-105 md:flex-row md:justify-between md:p-9 md:max-w-159 md:gap-0
+            "
+        >
+            <div className="flex flex-col gap-3 md:justify-between">
+                <div className="flex flex-col gap-2 w-full">
+                    <h3 className="h3">{title}</h3>
+
+                    <ul className="text-[12px] flex gap-2 flex-wrap md:text-[16px]">
+                        {tags.map(tag => {
+                            return (
+                                <li
+                                    key={tag}
+                                    className="
+                                        font-bold
+                                        text-Primary-Blue-400
+                                        px-4 py-2
+                                        border-2 border-Primary-Blue-300
+                                        rounded-[20px]
+                                    "
+                                >
+                                    {tag}
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+
+                <p className="font-bold text-Neutral-500 text-[20px] md:text-[24px]">
+                    {img_alt}
+                </p>
+            </div>
+
+            <div className="w-full h-15 bg-Neutral-200 r-sm md:w-42 md:h-52">
+                <img
+                    className="block h-40 -mt-27 mx-auto md:-ml-13 md:my-6"
+                    src={img_src}
+                    alt={img_alt}
+                />
+            </div>
+        </div>
+    );
+}
+
+function AboutRocket() {
+    return (
+        <>
+            <section className="bg-Primary-Blue-100 r-lg md:px-3 min-[1440px]:rounded-none -translate-y-4">
+                <div
+                    className="
+                        w-full px-12 py-9 mx-auto
+                        flex flex-col items-center gap-6
+                        md:px-0 md:py-15 md:flex-row
+                        md:max-w-324 md:justify-between md:items-start
+                    "
+                >
+                    <div className="w-full flex flex-col gap-4 md:max-w-132 md:gap-10">
+                        <div>
+                            <h2 className="body-2">
+                                About Rocket
+                            </h2>
+                            <h2 className="h1">什麼是火箭隊</h2>
+                        </div>
+
+                        <p className="md:text-[20px]">
+                            火箭隊位於高雄的工程師培訓營，針對市場急需的前端、後端工程師與 UI 設計師職缺而設。為期
+                            <span className="emphasis">七個月的免費課程</span>，學員全程參與，
+                            <span className="emphasis">僅需支付場地費</span>。
+                        </p>
+
+                        <p className="md:text-[20px]">
+                            火箭隊培育具備問題解決能力的專業人才，滿足企業需求。透過教練的觀察與協助，學員將建立階段性目標，確保技能成長。加入火箭隊，您將獲得實戰經驗，迅速融入職場，並滿足市場對高品質工程師的渴求。
+                        </p>
+                    </div>
+
+                    <div className="w-full flex flex-col gap-6 md:max-w-163 md:gap-8 md:h-148 md:overflow-y-scroll md:overflow-x-hidden">
+                        {jobCardData.map(card => (
+                            <JobCard key={card.id} card={card} />
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </>
+    );
+}
+
+export default AboutRocket;

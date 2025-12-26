@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@import "./common/_color.css";
+@import "./common/_font.css";
+@import "./common/_radius.css";
+@import "./common/_globals.css";
+@import "./common/_animate.css";
+
+body {
+    font-family: "Josefin Sans", "Noto Sans TC", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--color-Neutral-700);
+}

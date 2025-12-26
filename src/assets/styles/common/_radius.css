@@ -1,0 +1,23 @@
+@theme {
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 40px;
+}
+
+
+@utility r-sm {
+  border-radius: var(--radius-sm);
+}
+
+@utility r-md {
+  border-radius: var(--radius-md);
+}
+
+@utility r-lg {
+  border-radius: var(--radius-lg);
+}
+
+@utility r-xl {
+  border-radius: var(--radius-xl);
+}
