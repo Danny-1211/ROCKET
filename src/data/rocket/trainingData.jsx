@@ -40,8 +40,7 @@ const trainingData = [
                 heading: '關於前端',
                 content: (
                     <>
-                        主要專精 JavaScript 前端 (65%)、後端 (35%) 開發，投入語言為 HTML、CSS、JavaScript，
-                        <Highlight>適合有一些 HTML、CSS、JS 基礎的學員報名</Highlight>。
+                        主要專精 JavaScript 前端 (65%)、後端 (35%) 開發，投入語言為 HTML、CSS、JavaScript，<Highlight>適合有一些 HTML、CSS、JS 基礎的學員報名</Highlight>。
                     </>
                 )
             },
@@ -49,8 +48,7 @@ const trainingData = [
                 heading: '應徵門檻',
                 list: [
                     <>
-                        會用 CSS Flexbox 排過網頁，有 RWD 響應式網頁概念，需提交 CSS 切版作品，
-                        <Highlight>請在履歷上需附網頁切版作品</Highlight>，Codepen、GitHub Pages 皆可
+                        會用 CSS Flexbox 排過網頁，有 RWD 響應式網頁概念，需提交 CSS 切版作品，<Highlight>請在履歷上需附網頁切版作品</Highlight>，Codepen、GitHub Pages 皆可
                     </>,
                     '了解 JS 變數、陣列物件、DOM、監聽、AJAX 等知識，尚未熟練也沒關係。'
                 ]
@@ -79,8 +77,7 @@ const trainingData = [
                 heading: '關於後端',
                 content: (
                     <>
-                        後端工程師組主要專注後端開發，投入後端語言為
-                        <Highlight>C#、.NET，適合無程式背景的學員報名</Highlight>。
+                        後端工程師組主要專注後端開發，投入後端語言為<Highlight>C#、.NET，適合無程式背景的學員報名</Highlight>。
                     </>
                 )
             },
@@ -106,8 +103,7 @@ const trainingData = [
                 heading: '關於設計',
                 content: (
                     <>
-                        主要以網頁 UI 設計 50%、網頁前端 50% 的雙技能樹養成，
-                        <Highlight>適合具備視覺背景，操作過繪圖軟體尤佳</Highlight>。
+                        主要以網頁 UI 設計 50%、網頁前端 50% 的雙技能樹養成，<Highlight>適合具備視覺背景，操作過繪圖軟體尤佳</Highlight>。
                     </>
                 )
             },
