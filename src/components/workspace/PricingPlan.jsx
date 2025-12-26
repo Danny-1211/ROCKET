@@ -59,7 +59,7 @@ function PricingPlansCard({ activeIdx, setActiveIdx, checkIcon }) {
                                     {plan.items.map((item, i) => (
                                         <p key={i} className="flex items-center gap-3">
                                             <img
-                                                className="w-4.5 shrink-0"
+                                                className="w-4.5 shrink-0 md:w-5.25"
                                                 src={checkIcon}
                                                 alt="checkIcon"
                                             />
