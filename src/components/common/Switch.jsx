@@ -123,7 +123,7 @@ function Switch() {
 
       {/* Desktop Version  */}
       <section
-        className={`hidden w-full bg-repeat md:flex md:items-center md:justify-center   pt-39 pb-25 lg:flex lg:items-center lg:justify-center overflow-hidden`}
+        className={`hidden w-full bg-repeat md:flex md:items-center md:justify-center md:pt-16.75 md:pb-2.75 lg:pt-39 lg:pb-25 lg:flex lg:items-center lg:justify-center overflow-hidden transition-all duration-300 lg:px-3`}
         style={{ backgroundImage: `url(${bannerBgImg})` }}
       >
         <div className="btn-group-desktop flex items-center justify-center w-full gap-10  transition-transform duration-300 origin-center md:scale-[0.65] lg:scale-100 xl:scale-100">
