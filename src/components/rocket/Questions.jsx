@@ -28,7 +28,7 @@ function Listitem({ content }) {
           />
         </div>
         <div className="list-desc w-full flex flex-col items-start justify-start gap-2">
-          <p className="font-bold">{item.question}</p>
+          <p className="emphasis">{item.question}</p>
           {item.answer}
         </div>
       </div>

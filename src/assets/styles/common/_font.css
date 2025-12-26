@@ -42,13 +42,32 @@
 }
 
 
-@utility body-1 { font-size: 20px; line-height: 1.5; }
-@utility body-2 { font-size: 18px; line-height: 1.5; }
-@utility body-3 { font-size: 16px; line-height: 1.5; }
+@utility body-1 {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+@utility body-2 {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+@utility body-3 {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 700;
+}
 
 @media (min-width: 768px) {
   .body-1 { font-size: 24px; }
   .body-2 { font-size: 20px; }
+}
+
+@utility emphasis {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-weight: 700;
 }
 
 @utility text-vertical {

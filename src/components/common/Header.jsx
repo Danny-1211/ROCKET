@@ -10,7 +10,7 @@ const Content = () => (
     {marqueeSet.map((text, index) => (
       <span
         key={index}
-        className="px-4 py-3 font-bold text-color-Neutral-700 whitespace-nowrap"
+        className="px-4 py-3 emphasis whitespace-nowrap"
       >
         {text}
       </span>

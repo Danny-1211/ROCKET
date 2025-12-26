@@ -49,7 +49,7 @@ function Switch() {
       >
         <div className="btn-group-mobile flex flex-col items-center justify-center gap-11.5">
           <div
-            className={`rocket-btn-mobile relative bg-Neutral-white border-2 border-Neutral-300 r-md px-6 py-6 w-73.5 h-33.5 
+            className={`rocket-btn-mobile relative bg-Neutral-white border-2 border-Neutral-300 r-md px-6 py-6 w-73.5 h-33.5
             ${isSelected === isRocket
                 ? "shadow-[8px_8px_#BFC9F0]"
                 : "drop-shadow-none"
@@ -84,7 +84,7 @@ function Switch() {
             </div>
           </div>
           <div
-            className={`workspace-btn-mobile relative bg-Neutral-white border-2 border-Neutral-300 r-md px-6 py-6 w-73.5 h-33.5 
+            className={`workspace-btn-mobile relative bg-Neutral-white border-2 border-Neutral-300 r-md px-6 py-6 w-73.5 h-33.5
                         ${isSelected === isWorkspace
                 ? "shadow-[8px_8px_#EEE5FF]"
                 : "drop-shadow-none"
@@ -170,9 +170,9 @@ function Switch() {
                 className={`rocket-tag-desktop flex flex-col justify-center items-center ${!(isSelected === isRocket) ? unselectedStyle : ""
                   }`}
               >
-                <p className="body-2 font-bold"># 軟體工程師培訓營</p>
-                <p className="body-2 font-bold"># 全程免費的扎實訓練</p>
-                <p className="body-2 font-bold"># 帶你翻轉人生！</p>
+                <p className="body-2"># 軟體工程師培訓營</p>
+                <p className="body-2"># 全程免費的扎實訓練</p>
+                <p className="body-2"># 帶你翻轉人生！</p>
               </div>
             </div>
 
@@ -188,8 +188,8 @@ function Switch() {
                 src={rocket_card_btn_lg}
                 alt="rocket"
                 className={`w-25 h-27 object-cover z-30 ${!(isSelected === isRocket)
-                    ? "opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-                    : ""
+                  ? "opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                  : ""
                   }`}
               />
             </div>
@@ -224,7 +224,7 @@ function Switch() {
               />
 
               <div
-                className={`workspace-title-desktop flex flex-col items-center justify-center -mt-33 z-30 
+                className={`workspace-title-desktop flex flex-col items-center justify-center -mt-33 z-30
                 ${!(isSelected === isWorkspace) ? unselectedStyle : ""} `}
               >
                 <p className="h1">共同空間</p>
@@ -245,9 +245,9 @@ function Switch() {
                 className={`workspace-tag-desktop flex flex-col justify-center items-center ${!(isSelected === isWorkspace) ? unselectedStyle : ""
                   }`}
               >
-                <p className="body-2 font-bold"># 超 chill 的共同工作場域</p>
-                <p className="body-2 font-bold"># 餅乾、零食、咖啡應有盡有</p>
-                <p className="body-2 font-bold"># 等你來一同交流成長</p>
+                <p className="body-2"># 超 chill 的共同工作場域</p>
+                <p className="body-2"># 餅乾、零食、咖啡應有盡有</p>
+                <p className="body-2"># 等你來一同交流成長</p>
               </div>
             </div>
 
@@ -263,8 +263,8 @@ function Switch() {
                 src={coworkin_card_btn_lg}
                 alt="workspace"
                 className={`w-25 h-27 object-cover z-30 ${!(isSelected === isWorkspace)
-                    ? "opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-                    : ""
+                  ? "opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                  : ""
                   }`}
               />
             </div>

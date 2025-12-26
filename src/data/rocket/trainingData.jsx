@@ -10,7 +10,7 @@ function Highlight({ children }) {
     return (
         <span
             className="
-                font-bold
+                emphasis
                 relative z-0 inline-block
                 after:content-['']
                 after:absolute

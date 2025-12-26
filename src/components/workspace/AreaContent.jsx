@@ -14,7 +14,7 @@ function AreaContent() {
             <section className="max-w-293 mx-auto px-12 mt-9 md:mt-5">
                 <h2 className="text-center h2 py-4 md:py-15">場域說明</h2>
                 <span className="relative inline-block mb-4 md:mb-7">
-                    <span className="relative z-10 font-bold text-xl md:text-[28px]">#硬體</span>
+                    <span className="relative z-10 font-bold text-[20px] md:text-[28px]">#硬體</span>
                     <span className="absolute inset-x-0 -inset-y-0.2 bottom-0 h-1/2 bg-accent-orange z-0"></span>
                 </span>
                 <div className="space-y-10 md:space-y-9">
@@ -44,7 +44,7 @@ function AreaContent() {
 
                 <div className="mt-12 md:mt-19">
                     <span className="relative inline-block mb-7 md:mb-8">
-                        <span className="relative z-10 font-bold text-xl md:text-[28px]">#服務</span>
+                        <span className="relative z-10 font-bold text-[20px] md:text-[28px]">#服務</span>
                         <span className="absolute inset-x-0 -inset-y-0.2 bottom-0 h-1/2 bg-accent-orange z-0"></span>
                     </span>
 
@@ -68,10 +68,10 @@ function AreaContent() {
                 <div className=" mx-auto px-12 py-9 pb-12 md:py-15 md:mt-0 md:pb-20 max-w-293">
 
                     <div className="inline-block relative mb-7.25 md:mb-6.25 md:pl-20">
-                        <p className="r-sm outline-2 outline-Neutral-700  bg-white px-2.5 py-3 text-sm md:px-4 md:text-base">
-                            <span className="font-bold">2023</span>
+                        <p className="r-sm outline-2 outline-Neutral-700  bg-white px-2.5 py-3 text-[14px] md:px-4 md:text-[16px]">
+                            <span className="emphasis">2023</span>
                             <span> 年為試營運階段，進駐可享有</span>
-                            <span className="font-bold">限定優惠價！</span>
+                            <span className="emphasis">限定優惠價！</span>
                         </p>
 
 
@@ -95,9 +95,9 @@ function AreaContent() {
 
 
                     <h2 className="h2 mb-3 md:mb-2">進駐費用</h2>
-                    <p className="text-base md:text-xl  mb-5 md:mb-9">
-                        進駐區域共分兩區塊：<span className="font-bold">培訓區域</span> 及{" "}
-                        <span className="font-bold">進駐區域</span>，目前僅接受租期 1 個月以上，
+                    <p className="text-[16px] md:text-[20px]  mb-5 md:mb-9">
+                        進駐區域共分兩區塊：<span className="emphasis">培訓區域</span> 及{" "}
+                        <span className="emphasis">進駐區域</span>，目前僅接受租期 1 個月以上，
                         單日暫不開放。
                     </p>
 
