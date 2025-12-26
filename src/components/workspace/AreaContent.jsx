@@ -127,7 +127,7 @@ function AreaContent() {
                             className="
                                 w-16 h-16
                                 opacity-0 scale-30
-                                transition-[opacity,transform] duration-500 ease-out
+                                transition-all duration-500 ease-out
                                 group-hover:opacity-100 group-hover:scale-100
                             "
                         />
