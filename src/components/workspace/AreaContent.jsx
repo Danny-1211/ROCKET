@@ -77,18 +77,20 @@ function AreaContent() {
 
                         <span
                             className="
-                        absolute left-5.5 md:left-23 -bottom-3.75
-                        h-0 w-0
-                        border-l-13 border-l-transparent
-                        border-r-12 border-r-transparent
-                        border-t-15 border-t-Neutral-700"/>
+                                absolute left-5.5 md:left-23 -bottom-3.75
+                                h-0 w-0
+                                border-l-13 border-l-transparent
+                                border-r-12 border-r-transparent
+                                border-t-15 border-t-Neutral-700"
+                        />
                         <span
                             className="
-                        absolute left-6 md:left-23.5 -bottom-3
-                        h-0 w-0
-                        border-l-11 border-l-transparent md:border-l-11
-                        border-r-10 border-r-transparent md:border-r-10
-                        border-t-13 border-t-white"/>
+                                absolute left-6 md:left-23.5 -bottom-3
+                                h-0 w-0
+                                border-l-11 border-l-transparent md:border-l-11
+                                border-r-10 border-r-transparent md:border-r-10
+                                border-t-13 border-t-white"
+                        />
                     </div>
 
 
@@ -109,35 +111,28 @@ function AreaContent() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="
-                        h3 group flex items-center justify-center
-                        bg-violet-100 border-2 border-Neutral-700
-                        r-md p-4 md:py-6
-                    "
-                    >
-                        <span className="relative inline-flex items-center">
-                            <span className="transition-transform duration-700 group-hover:-translate-x-5">
-                                馬上填表單！
-                            </span>
-
-                            <img
-                                src={goIcon}
-                                alt="goIcon"
-                                aria-hidden="true"
-                                className="
-                            absolute left-full top-1/2 -translate-y-1/2
-                            ml-2
-                            w-16 h-16
-                            opacity-0 scale-30
-                            transition-[opacity,transform] duration-1000 ease-out
-                            group-hover:opacity-100 group-hover:scale-100
+                            h3 h-18.25 bg-Primary-Violet-100 border-2 border-Neutral-700 r-md flex justify-center items-center gap-5
+                            md:h-24 active:bg-Primary-Violet-200
+                            group
                         "
-                            />
+                    >
+                        <span className="translate-x-10.5 transform transition-all duration-500 group-hover:translate-x-0">
+                            馬上填表單！
                         </span>
+
+                        <img
+                            src={goIcon}
+                            alt="goIcon"
+                            aria-hidden="true"
+                            className="
+                                w-16 h-16
+                                opacity-0 scale-30
+                                transition-[opacity,transform] duration-500 ease-out
+                                group-hover:opacity-100 group-hover:scale-100
+                            "
+                        />
                     </a>
                 </div>
-
-
-
             </section>
 
         </>

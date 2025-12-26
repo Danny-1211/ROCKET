@@ -54,7 +54,7 @@ function JobCard({ card }) {
 function AboutRocket() {
     return (
         <>
-            <section className="bg-Primary-Blue-100 r-lg md:px-3 min-[1024px]:rounded-none">
+            <section className="bg-Primary-Blue-100 r-lg md:px-3 min-[1440px]:rounded-none -translate-y-4">
                 <div
                     className="
                         w-full px-12 py-9 mx-auto
