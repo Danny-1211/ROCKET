@@ -38,7 +38,7 @@ function PricingPlansCard({ activeIdx, setActiveIdx, checkIcon }) {
                             >
                                 <h3
                                     className={[
-                                        "h3 text-center mb-4",
+                                        "text-2xl font-bold text-center mb-5 md:mb-9",
                                         plan.titleClass,
                                     ]
                                         .filter(Boolean)
@@ -48,14 +48,14 @@ function PricingPlansCard({ activeIdx, setActiveIdx, checkIcon }) {
                                 </h3>
                                 <p
                                     className={[
-                                        "bg-Neutral-200 text-center text-[24px] font-bold",
+                                        "bg-Neutral-200 text-center text-[24px] md:text-4xl font-bold",
                                         plan.priceClass,
                                     ].join(" ")}
                                 >
                                     {plan.price}
                                 </p>
 
-                                <div className="flex flex-col gap-3 mt-4 md:mt-7 md:gap-4 ">
+                                <div className="flex flex-col gap-3 mt-4 md:mt-7 md:gap-4 md:text-[20px] ">
                                     {plan.items.map((item, i) => (
                                         <p key={i} className="flex items-center gap-3">
                                             <img
@@ -66,10 +66,10 @@ function PricingPlansCard({ activeIdx, setActiveIdx, checkIcon }) {
 
                                             {item.type === "highlight" ? (
                                                 <span className="relative inline-block">
-                                                    <span className="relative z-10">
+                                                    <span className="relative  z-10 ">
                                                         {item.text}
                                                     </span>
-                                                    <span className="absolute -inset-y-0.1  inset-x-0 bottom-0.5 h-2/5 bg-accent-orange z-0" />
+                                                    <span className="absolute -inset-y-0.3  inset-x-0 bottom-2 h-2/5 bg-accent-orange z-0" />
                                                 </span>
                                             ) : item.type === "time" ? (
                                                 <>
